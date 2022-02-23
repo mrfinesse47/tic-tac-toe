@@ -4,12 +4,23 @@ body {
 }
 
 .new-game-menu {
+  margin: 0 auto;
   width: 490px;
 }
 
 .new-game-menu img {
   width: 20px;
   height: 20px;
+}
+
+.new-game-menu h1 {
+  font-size: 1rem;
+  color: #a8bfc9;
+}
+
+.new-game-menu p {
+  font-size: 0.875rem;
+  color: #a8bfc9;
 }
 
 .new-game-menu .menu {

@@ -6,11 +6,21 @@ body {
 }
 
 .new-game-menu {
+  margin: 0 auto;
+  width: 490px;
   img {
     width: 20px;
     height: 20px;
   }
-  width: 490px;
+  h1 {
+    font-size: 1rem;
+    color: $silver;
+  }
+  p {
+    font-size: 0.875rem;
+    color: $silver;
+  }
+
   .menu {
     background-color: $semi-dark-navy;
   }
