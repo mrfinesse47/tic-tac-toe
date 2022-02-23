@@ -8,14 +8,31 @@ body {
   width: 490px;
 }
 
+.new-game-menu .xo-displayed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 32px;
+  margin-top: 119px;
+}
+
 .new-game-menu img {
-  width: 20px;
-  height: 20px;
+  width: 31.78px;
+  height: 31.78px;
+  margin-left: 8.23px;
 }
 
 .new-game-menu h1 {
   font-size: 1rem;
   color: #a8bfc9;
+  margin: 24px;
 }
 
 .new-game-menu p {
@@ -25,5 +42,20 @@ body {
 
 .new-game-menu .menu {
   background-color: #1f3641;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.new-game-menu .menu .selection {
+  background-color: #1a2a33;
+  width: 279px;
 }
 /*# sourceMappingURL=styles.css.map */
