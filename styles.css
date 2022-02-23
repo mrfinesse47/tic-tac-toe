@@ -1,8 +1,17 @@
-h1 {
-  color: #31c3bd;
+body {
+  background-color: #1a2a33;
 }
 
-p {
-  color: #31c3bd;
+.new-game-menu {
+  width: 490px;
+}
+
+.new-game-menu img {
+  width: 20px;
+  height: 20px;
+}
+
+.new-game-menu .menu {
+  background-color: #1f3641;
 }
 /*# sourceMappingURL=styles.css.map */

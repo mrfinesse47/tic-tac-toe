@@ -1,9 +1,16 @@
 @import "variables";
 
-h1 {
-  color: $light-blue;
+body {
+  background-color: $dark-navy;
 }
 
-p {
-  color: $light-blue;
+.new-game-menu {
+  img {
+    width: 20px;
+    height: 20px;
+  }
+  width: 490px;
+  .menu {
+    background-color: $semi-dark-navy;
+  }
 }
