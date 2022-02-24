@@ -5,6 +5,10 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
+// .btn-primary {
+//   width: 327px;
+// }
+
 .new-game-menu {
   margin: 0 auto;
   width: 490px;
@@ -33,6 +37,10 @@ body {
 
   .menu {
     background-color: $semi-dark-navy;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: inset 0px -8px 0px #10212a;
+    width: 327px;
     display: flex;
     flex-direction: column;
     align-items: center;
