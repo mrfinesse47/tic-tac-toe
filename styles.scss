@@ -5,9 +5,22 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
-// .btn-primary {
-//   width: 327px;
-// }
+.btn-primary {
+  width: 327px;
+  border-radius: 15px;
+  height: 56px;
+
+  border: none;
+}
+
+.gold {
+  box-shadow: inset 0px -8px 0px #cc8b13;
+  background-color: $light-yellow;
+}
+
+.blue {
+  box-shadow: inset 0px -8px 0px #118c87;
+}
 
 .new-game-menu {
   margin: 0 auto;

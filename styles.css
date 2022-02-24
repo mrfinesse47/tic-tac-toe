@@ -3,6 +3,24 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
+.btn-primary {
+  width: 327px;
+  border-radius: 15px;
+  height: 56px;
+  border: none;
+}
+
+.gold {
+  -webkit-box-shadow: inset 0px -8px 0px #cc8b13;
+          box-shadow: inset 0px -8px 0px #cc8b13;
+  background-color: #f2b137;
+}
+
+.blue {
+  -webkit-box-shadow: inset 0px -8px 0px #118c87;
+          box-shadow: inset 0px -8px 0px #118c87;
+}
+
 .new-game-menu {
   margin: 0 auto;
   width: 490px;
