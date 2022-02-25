@@ -26,12 +26,12 @@ body {
   background-color: #31c3bd;
 }
 
-.new-game-menu {
+#new-game-menu {
   margin: 0 auto;
   width: 490px;
 }
 
-.new-game-menu .xo-displayed {
+#new-game-menu .xo-displayed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,26 +46,26 @@ body {
   margin-top: 119px;
 }
 
-.new-game-menu img {
+#new-game-menu img {
   width: 31.78px;
   height: 31.78px;
   margin-left: 8.23px;
 }
 
-.new-game-menu h1 {
+#new-game-menu h1 {
   font-size: 1rem;
   letter-spacing: 1px;
   color: #a8bfc9;
   margin: 24px;
 }
 
-.new-game-menu p {
+#new-game-menu p {
   font-size: 0.875rem;
   letter-spacing: 1px;
   color: #a8bfc9;
 }
 
-.new-game-menu .menu {
+#new-game-menu .menu {
   background-color: #1f3641;
   margin: 0 auto;
   border-radius: 15px;
@@ -84,7 +84,7 @@ body {
           align-items: center;
 }
 
-.new-game-menu .menu .selection {
+#new-game-menu .menu .selection {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -95,7 +95,7 @@ body {
   width: 279px;
 }
 
-.new-game-menu .buttons-container {
+#new-game-menu .buttons-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
