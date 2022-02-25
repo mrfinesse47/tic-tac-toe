@@ -8,6 +8,10 @@ body {
   border-radius: 15px;
   height: 56px;
   border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1a2a33;
+  letter-spacing: 1px;
 }
 
 .gold {
@@ -50,12 +54,14 @@ body {
 
 .new-game-menu h1 {
   font-size: 1rem;
+  letter-spacing: 1px;
   color: #a8bfc9;
   margin: 24px;
 }
 
 .new-game-menu p {
   font-size: 0.875rem;
+  letter-spacing: 1px;
   color: #a8bfc9;
 }
 
@@ -79,6 +85,12 @@ body {
 }
 
 .new-game-menu .menu .selection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #1a2a33;
   width: 279px;
 }
