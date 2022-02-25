@@ -19,6 +19,7 @@ body {
 .blue {
   -webkit-box-shadow: inset 0px -8px 0px #118c87;
           box-shadow: inset 0px -8px 0px #118c87;
+  background-color: #31c3bd;
 }
 
 .new-game-menu {
@@ -80,5 +81,18 @@ body {
 .new-game-menu .menu .selection {
   background-color: #1a2a33;
   width: 279px;
+}
+
+.new-game-menu .buttons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=styles.css.map */

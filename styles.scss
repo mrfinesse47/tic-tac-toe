@@ -20,6 +20,7 @@ body {
 
 .blue {
   box-shadow: inset 0px -8px 0px #118c87;
+  background-color: $light-blue;
 }
 
 .new-game-menu {
@@ -61,5 +62,10 @@ body {
       background-color: $dark-navy;
       width: 279px;
     }
+  }
+  .buttons-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 }
