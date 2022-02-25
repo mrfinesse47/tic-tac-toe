@@ -27,6 +27,14 @@ body {
   background-color: $light-blue;
 }
 
+.menu-selected-character {
+  background-color: red;
+  width: 131.99px;
+  height: 54px;
+  background-color: $silver;
+  border-radius: 10px;
+}
+
 #new-game-menu {
   margin: 0 auto;
   width: 490px;
@@ -67,13 +75,30 @@ body {
     .selection {
       display: flex;
       justify-content: center;
+      align-items: center;
       background-color: $dark-navy;
       width: 279px;
+      height: 72px;
+      img {
+        margin: 0 auto;
+      }
+      .x,
+      .o {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 131.99px;
+        height: 54px;
+      }
     }
   }
   .buttons-container {
     display: flex;
     align-items: center;
     flex-direction: column;
+    .btn-primary.gold {
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
   }
 }
