@@ -73,15 +73,22 @@ body {
     flex-direction: column;
     align-items: center;
     .selection {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
       background-color: $dark-navy;
       width: 279px;
       height: 72px;
-      img {
-        margin: 0 auto;
+      // img {
+      //   margin: 0 auto;
+      //   height: 32px;
+      //   width: 32px;
+      // }
+      #menu-o {
+        height: 32px;
+        width: 32px;
       }
+
       .x,
       .o {
         display: flex;
