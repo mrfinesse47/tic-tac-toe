@@ -28,7 +28,6 @@ body {
 }
 
 .menu-selected-character {
-  background-color: red;
   width: 131.99px;
   height: 54px;
   background-color: $silver;
@@ -79,14 +78,11 @@ body {
       background-color: $dark-navy;
       width: 279px;
       height: 72px;
-      // img {
-      //   margin: 0 auto;
-      //   height: 32px;
-      //   width: 32px;
-      // }
-      // svg {
-      //   background-size: 30px 30px;
-      // }
+      img {
+        margin: 0 auto;
+        height: 32px;
+        width: 32px;
+      }
 
       .x,
       .o {
