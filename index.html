@@ -33,10 +33,14 @@
       <div class="menu">
         <h1>Pick player 1's mark</h1>
         <div class="selection">
-          <div class="x" id="x">
+          <div class="x" id="x" onclick="toggleSelection(this)">
             <img src="./assets/icon-x-silver.svg" alt="x" />
           </div>
-          <div class="o menu-selected-character" id="o">
+          <div
+            class="o menu-selected-character"
+            id="o"
+            onclick="toggleSelection(this)"
+          >
             <img src="./assets/icon-o-dark-navy.svg" alt="o" />
           </div>
         </div>
