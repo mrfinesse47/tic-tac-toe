@@ -6,3 +6,9 @@
 // x.style.background = "pink";
 // const o = document.querySelector("#o");
 // o.classList.remove("menu-selected-character");
+
+const game = () => {};
+
+const mainMenuController = () => {};
+
+game();
