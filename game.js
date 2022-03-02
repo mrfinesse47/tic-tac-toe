@@ -1,6 +1,14 @@
 //will control the views and the game
 
-const game = { p1Mark: "o", isHumanOpponent: null }; //accessable to all functions that come after.
+const game = {
+  p1Mark: "o",
+  isHumanOpponent: null,
+  board: [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+  ],
+}; //accessable to all functions that come after.
 
 newGameMenu = document.getElementById("new-game-menu");
 gameBoard = document.getElementById("game-board");
@@ -23,7 +31,7 @@ const viewController = (view) => {
   console.log(view);
 };
 
-viewController("newGame"); //initially loads wit new game view
+viewController("newGame"); //initially loads with new game view
 
 console.log("hi");
 
