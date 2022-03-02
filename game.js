@@ -40,12 +40,8 @@ const toggleSelection = (el) => {
 
     game.p1Mark = "x";
 
-    //console.log(xImg.src);
-
     xImg.src = xImg.src.replace("silver", "dark-navy");
     oImg.src = oImg.src.replace("dark-navy", "silver");
-
-    //console.log(xImg.src);
   }
   if (el.id === "o") {
     x.classList.remove("menu-selected-character");
