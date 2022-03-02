@@ -72,9 +72,9 @@ body {
     flex-direction: column;
     align-items: center;
     .selection {
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: $dark-navy;
       width: 279px;
       height: 72px;
@@ -101,6 +101,29 @@ body {
     .btn-primary.gold {
       margin-top: 32px;
       margin-bottom: 16px;
+    }
+  }
+}
+
+#game-board {
+  header {
+    display: flex;
+    .xo-displayed {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      // margin-bottom: 32px;
+      // margin-top: 119px;
+      img {
+        width: 31.74px;
+        height: 31.74px;
+      }
+      .whos-turn {
+        img {
+          width: 16px;
+          height: 16px;
+        }
+      }
     }
   }
 }

@@ -27,7 +27,6 @@ body {
 }
 
 .menu-selected-character {
-  background-color: red;
   width: 131.99px;
   height: 54px;
   background-color: #a8bfc9;
@@ -109,6 +108,8 @@ body {
 
 #new-game-menu .menu .selection img {
   margin: 0 auto;
+  height: 32px;
+  width: 32px;
 }
 
 #new-game-menu .menu .selection .x,
@@ -142,5 +143,34 @@ body {
 #new-game-menu .buttons-container .btn-primary.gold {
   margin-top: 32px;
   margin-bottom: 16px;
+}
+
+#game-board header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#game-board header .xo-displayed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#game-board header .xo-displayed img {
+  width: 31.74px;
+  height: 31.74px;
+}
+
+#game-board header .xo-displayed .whos-turn img {
+  width: 16px;
+  height: 16px;
 }
 /*# sourceMappingURL=styles.css.map */

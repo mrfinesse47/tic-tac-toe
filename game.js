@@ -14,9 +14,6 @@ newGameMenu = document.getElementById("new-game-menu");
 gameBoard = document.getElementById("game-board");
 
 const viewController = (view) => {
-  //   if (view === "mainGame") {
-  //   }
-
   switch (view) {
     case "mainGame":
       newGameMenu.style.display = "none";
@@ -28,12 +25,9 @@ const viewController = (view) => {
       break;
     // default:
   }
-  console.log(view);
 };
 
 viewController("newGame"); //initially loads with new game view
-
-console.log("hi");
 
 const toggleSelection = (el) => {
   const letter = el.id;
@@ -59,8 +53,6 @@ const toggleSelection = (el) => {
 
     xImg.src = xImg.src.replace("dark-navy", "silver");
     oImg.src = oImg.src.replace("silver", "dark-navy");
-
-    // console.log(xImg.src);
   }
 };
 
