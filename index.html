@@ -47,14 +47,30 @@
         <p class="reminder">Remember: X goes first</p>
       </div>
       <div class="buttons-container">
-        <button class="btn-primary gold">New Game (vs CPU)</button>
-        <button class="btn-primary blue">New Game (vs player)</button>
+        <button
+          class="btn-primary gold"
+          id="ai"
+          onclick="toggleHumanOrAI(this)"
+        >
+          New Game (vs CPU)
+        </button>
+        <button
+          class="btn-primary blue"
+          id="human"
+          onclick="toggleHumanOrAI(this)"
+        >
+          New Game (vs player)
+        </button>
       </div>
     </div>
 
     <!-- New game menu end -->
 
     <!-- Game board start -->
+
+    <div id="game-board">
+      <h1>game board</h1>
+    </div>
 
     <!-- x/o icon -->
     <!-- turn X (You) -->

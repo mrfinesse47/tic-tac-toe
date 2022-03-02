@@ -1,13 +1,31 @@
 //will control the views and the game
 
-//alert("testing script");
+const game = { p1Mark: "o", isHumanOpponent: null }; //accessable to all functions that come after.
 
-// const x = document.querySelector("#x");
-// x.style.background = "pink";
-// const o = document.querySelector("#o");
-// o.classList.remove("menu-selected-character");
+newGameMenu = document.getElementById("new-game-menu");
+gameBoard = document.getElementById("game-board");
 
-const game = { p1Mark: "o" }; //accessable to all functions that come after.
+const viewController = (view) => {
+  //   if (view === "mainGame") {
+  //   }
+
+  switch (view) {
+    case "mainGame":
+      newGameMenu.style.display = "none";
+      gameBoard.style.display = "block";
+      break;
+    case "newGame":
+      newGameMenu.style.display = "block";
+      gameBoard.style.display = "none";
+      break;
+    // default:
+  }
+  console.log(view);
+};
+
+viewController("newGame"); //initially loads wit new game view
+
+console.log("hi");
 
 const toggleSelection = (el) => {
   const letter = el.id;
@@ -16,20 +34,18 @@ const toggleSelection = (el) => {
   const oImg = document.querySelector("#o img");
   const xImg = document.querySelector("#x img");
 
-  //console.log(oImg.src);
-
   if (el.id === "x") {
     o.classList.remove("menu-selected-character");
     x.classList.add("menu-selected-character");
 
     game.p1Mark = "x";
 
-    console.log(xImg.src);
+    //console.log(xImg.src);
 
     xImg.src = xImg.src.replace("silver", "dark-navy");
     oImg.src = oImg.src.replace("dark-navy", "silver");
 
-    console.log(xImg.src);
+    //console.log(xImg.src);
   }
   if (el.id === "o") {
     x.classList.remove("menu-selected-character");
@@ -42,4 +58,12 @@ const toggleSelection = (el) => {
 
     // console.log(xImg.src);
   }
+};
+
+const toggleHumanOrAI = (el) => {
+  el.id === "human"
+    ? (game.isHumanOpponent = true)
+    : (game.isHumanOpponent = false);
+
+  viewController("mainGame");
 };
