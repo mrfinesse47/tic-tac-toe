@@ -241,4 +241,42 @@ h2 {
   width: 15.38px;
   height: 15.38px;
 }
+
+#game-board main {
+  margin-top: 64px;
+}
+
+#game-board main .row {
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#game-board main .row .cell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #1f3641;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: inset 0px -8px 0px #10212a;
+          box-shadow: inset 0px -8px 0px #10212a;
+  border-radius: 10px;
+}
+
+#game-board main .row .cell img {
+  width: 40px;
+  height: 40px;
+}
 /*# sourceMappingURL=styles.css.map */
