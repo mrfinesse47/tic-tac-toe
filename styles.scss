@@ -3,6 +3,13 @@
 body {
   background-color: $dark-navy;
   font-family: "Outfit", sans-serif;
+  margin: 0;
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.875px;
 }
 
 .btn-primary {
@@ -106,6 +113,9 @@ body {
 }
 
 #game-board {
+  width: 328px; //mobile first
+  margin: 0 auto;
+  margin-top: 24px;
   header {
     display: flex;
     align-items: center;
@@ -115,16 +125,28 @@ body {
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      margin-right: 46.03px;
       // margin-bottom: 32px;
       // margin-top: 119px;
       img {
         width: 31.74px;
         height: 31.74px;
+        margin-right: 8px;
       }
     }
     .whos-turn {
       display: flex;
       align-items: center;
+      background-color: $semi-dark-navy;
+      border-radius: 5px;
+      color: $silver;
+      padding: 9px 15px 13px 15px;
+      box-shadow: inset 0px -4px 0px #10212a;
+      margin-right: 74px;
+      h2 {
+        margin-left: 9px;
+        font-size: 14px;
+      }
       img {
         width: 16px;
         height: 16px;

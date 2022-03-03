@@ -1,6 +1,13 @@
 body {
   background-color: #1a2a33;
   font-family: "Outfit", sans-serif;
+  margin: 0;
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.875px;
 }
 
 .btn-primary {
@@ -145,6 +152,12 @@ body {
   margin-bottom: 16px;
 }
 
+#game-board {
+  width: 328px;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
 #game-board header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -171,11 +184,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-right: 46.03px;
 }
 
 #game-board header .xo-displayed img {
   width: 31.74px;
   height: 31.74px;
+  margin-right: 8px;
 }
 
 #game-board header .whos-turn {
@@ -185,6 +200,18 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #1f3641;
+  border-radius: 5px;
+  color: #a8bfc9;
+  padding: 9px 15px 13px 15px;
+  -webkit-box-shadow: inset 0px -4px 0px #10212a;
+          box-shadow: inset 0px -4px 0px #10212a;
+  margin-right: 74px;
+}
+
+#game-board header .whos-turn h2 {
+  margin-left: 9px;
+  font-size: 14px;
 }
 
 #game-board header .whos-turn img {
