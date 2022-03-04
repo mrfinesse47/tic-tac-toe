@@ -6,6 +6,12 @@ body {
   margin: 0;
 }
 
+p,
+h3 {
+  padding: 0;
+  margin: 0;
+}
+
 h2 {
   padding: 0;
   margin: 0;
@@ -29,9 +35,19 @@ h2 {
   background-color: $light-yellow;
 }
 
+.gold:hover {
+  background-color: $light-yellow-hover;
+  cursor: pointer;
+}
+
 .blue {
   box-shadow: inset 0px -8px 0px #118c87;
   background-color: $light-blue;
+}
+
+.blue:hover {
+  background-color: $light-blue-hover;
+  cursor: pointer;
 }
 
 .menu-selected-character {
@@ -43,7 +59,7 @@ h2 {
 
 #new-game-menu {
   margin: 0 auto;
-  width: 490px;
+  width: 327px;
 
   .xo-displayed {
     display: flex;
@@ -188,6 +204,18 @@ h2 {
           height: 40px;
         }
       }
+    }
+  }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    .score {
+      width: 96px;
+      height: 46px;
+      text-align: center;
+    }
+    #x-score {
+      background-color: $light-blue;
     }
   }
 }
