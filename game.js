@@ -1,7 +1,7 @@
 //will control the views and the game
 
 const game = {
-  p1Mark: "o",
+  p1Mark: "o", //default
   isHumanOpponent: null,
   board: [
     [null, null, null],
@@ -28,6 +28,8 @@ const viewController = (view) => {
 };
 
 viewController("newGame"); //initially loads with new game view
+
+//main menu helper functions
 
 const toggleSelection = (el) => {
   const letter = el.id;
@@ -62,4 +64,10 @@ const toggleHumanOrAI = (el) => {
     : (game.isHumanOpponent = false);
 
   viewController("mainGame");
+};
+
+//game board helper functions
+
+const cellClickHandler = (el) => {
+  alert("clicked id:" + el.id);
 };
