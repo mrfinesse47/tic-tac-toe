@@ -1,19 +1,5 @@
 //will control the views and the game
 
-const game = {
-  p1Mark: "o", //default
-  isHumanOpponent: null,
-  turn: "x",
-  board: [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
-  ],
-}; //accessable to all functions that come after.
-
-newGameMenu = document.getElementById("new-game-menu");
-gameBoard = document.getElementById("game-board");
-
 const viewController = (view) => {
   switch (view) {
     case "mainGame":
@@ -27,6 +13,20 @@ const viewController = (view) => {
     // default:
   }
 };
+
+const game = {
+  p1Mark: "o", //default
+  isHumanOpponent: null,
+  turn: "x",
+  board: [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+  ],
+}; //accessable to all functions that come after.
+
+newGameMenu = document.getElementById("new-game-menu");
+gameBoard = document.getElementById("game-board");
 
 viewController("newGame"); //initially loads with new game view
 
@@ -75,7 +75,10 @@ const cellClickHandler = (el) => {
   //must find out if the cell is already taken, if so do nothing,
   //if it is nit taken then set it to x or o based on whoevers turn it is,
   // if its the computers turn dont allow a click to do anything.
-  //maybe on the computers turn we can test with a delay to make sure its locked out.
+  //maybe on the computers turn we can test with a delay to make sure its locked out.]
+  const turnIndicator = document.querySelector(".whos-turn img");
+  // console.log(turnIndicator.src);
+  //   whos-turn
   const xCoord = el.id.charAt(0);
   const yCoord = el.id.charAt(2);
   console.log("x:" + xCoord + " " + " y:" + yCoord);
@@ -86,10 +89,20 @@ const cellClickHandler = (el) => {
       el.innerHTML = "<img src='./assets/icon-x.svg' alt='x' />";
       game.turn = "o";
       game.board[xCoord][yCoord] = "x";
+      //toggles the indicator at the top as to whos turn it is
+      turnIndicator.src = turnIndicator.src.replace(
+        "icon-x-silver.svg",
+        "icon-o-silver.svg"
+      );
     } else {
       el.innerHTML = "<img src='./assets/icon-o.svg' alt='o' />";
       game.turn = "x";
       game.board[xCoord][yCoord] = "o";
+      //toggles the indicator at the top as to whos turn it is
+      turnIndicator.src = turnIndicator.src.replace(
+        "icon-o-silver.svg",
+        "icon-x-silver.svg"
+      );
     }
   }
 };
