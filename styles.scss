@@ -6,7 +6,6 @@ body {
   margin: 0;
 }
 
-p,
 h3 {
   padding: 0;
   margin: 0;
@@ -209,13 +208,34 @@ h2 {
   footer {
     display: flex;
     justify-content: space-between;
+    color: $dark-navy;
+
     .score {
       width: 96px;
-      height: 46px;
+      height: 64px;
       text-align: center;
+      border-radius: 10px;
+      h3 {
+        font-size: 12px;
+        font-weight: 500;
+        margin-top: 12px;
+        letter-spacing: 0.75px;
+      }
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 20px;
+        font-weight: 700;
+      }
     }
     #x-score {
       background-color: $light-blue;
+    }
+    #ties {
+      background-color: $silver;
+    }
+    #o-score {
+      background-color: $light-yellow;
     }
   }
 }

@@ -4,7 +4,6 @@ body {
   margin: 0;
 }
 
-p,
 h3 {
   padding: 0;
   margin: 0;
@@ -303,15 +302,39 @@ h2 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: #1a2a33;
 }
 
 #game-board footer .score {
   width: 96px;
-  height: 46px;
+  height: 64px;
   text-align: center;
+  border-radius: 10px;
+}
+
+#game-board footer .score h3 {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 12px;
+  letter-spacing: 0.75px;
+}
+
+#game-board footer .score p {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 #game-board footer #x-score {
   background-color: #31c3bd;
+}
+
+#game-board footer #ties {
+  background-color: #a8bfc9;
+}
+
+#game-board footer #o-score {
+  background-color: #f2b137;
 }
 /*# sourceMappingURL=styles.css.map */
