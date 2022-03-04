@@ -3,6 +3,7 @@
 const game = {
   p1Mark: "o", //default
   isHumanOpponent: null,
+  turn: "x",
   board: [
     [null, null, null],
     [null, null, null],
@@ -69,5 +70,26 @@ const toggleHumanOrAI = (el) => {
 //game board helper functions
 
 const cellClickHandler = (el) => {
-  alert("clicked id:" + el.id);
+  // alert("clicked id:" + el.id);
+  //document.getElementById("content").innerHTML = "whatever";
+  //must find out if the cell is already taken, if so do nothing,
+  //if it is nit taken then set it to x or o based on whoevers turn it is,
+  // if its the computers turn dont allow a click to do anything.
+  //maybe on the computers turn we can test with a delay to make sure its locked out.
+  const xCoord = el.id.charAt(0);
+  const yCoord = el.id.charAt(2);
+  console.log("x:" + xCoord + " " + " y:" + yCoord);
+  console.log(game.board[xCoord][yCoord]);
+
+  if (!game.board[xCoord][yCoord]) {
+    if (game.turn === "x") {
+      el.innerHTML = "<img src='./assets/icon-x.svg' alt='x' />";
+      game.turn = "o";
+      game.board[xCoord][yCoord] = "x";
+    } else {
+      el.innerHTML = "<img src='./assets/icon-o.svg' alt='o' />";
+      game.turn = "x";
+      game.board[xCoord][yCoord] = "o";
+    }
+  }
 };
