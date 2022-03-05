@@ -75,41 +75,53 @@ const checkForWinOrTie = () => {
 
   let nullCount = 0;
   for (y = 0; y <= 2; y++) {
-    let xCount = 0;
-    let oCount = 0;
+    let horizXCount = 0;
+    let horizOCount = 0;
+    let vertXCount = 0;
+    let vertOCount = 0;
     for (x = 0; x <= 2; x++) {
       if (game.board[x][y]) {
-        game.board[x][y] === "x" ? xCount++ : oCount++;
+        game.board[x][y] === "x" ? horizXCount++ : horizOCount++;
       } else {
         nullCount++;
-        x = 2; //may as well stop counting this line
       }
-      if (xCount === 3) {
+      if (game.board[y][x]) {
+        game.board[y][x] === "x" ? vertXCount++ : vertOCount++;
+      } else {
+        nullCount++;
+      }
+      if (horizXCount === 3) {
         console.log("horizontal x win at: " + x + "," + y);
       }
-      if (oCount === 3) {
+      if (horizOCount === 3) {
         console.log("horizontal o win at: " + x + "," + y);
       }
-    }
-  }
-  for (x = 0; x <= 2; x++) {
-    let xCount = 0;
-    let oCount = 0;
-    for (y = 0; y <= 2; y++) {
-      if (game.board[x][y]) {
-        game.board[x][y] === "x" ? xCount++ : oCount++;
-      } else {
-        nullCount++;
-        y = 2;
+      if (vertXCount === 3) {
+        console.log("vertical x win at: " + y + "," + x);
       }
-      if (xCount === 3) {
-        console.log("vertical x win at: " + x + "," + y);
-      }
-      if (oCount === 3) {
-        console.log("vertical o win at: " + x + "," + y);
+      if (vertOCount === 3) {
+        console.log("vertical o win at: " + y + "," + x);
       }
     }
   }
+  //   for (x = 0; x <= 2; x++) {
+  //     let xCount = 0;
+  //     let oCount = 0;
+  //     for (y = 0; y <= 2; y++) {
+  //       if (game.board[x][y]) {
+  //         game.board[x][y] === "x" ? xCount++ : oCount++;
+  //       } else {
+  //         nullCount++;
+  //         y = 2;
+  //       }
+  //       if (xCount === 3) {
+  //         console.log("vertical x win at: " + x + "," + y);
+  //       }
+  //       if (oCount === 3) {
+  //         console.log("vertical o win at: " + x + "," + y);
+  //       }
+  //     }
+  //   }
   //need to check the 2 diagonals
 
   if (nullCount === 0) {
