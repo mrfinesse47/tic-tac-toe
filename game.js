@@ -25,6 +25,9 @@ const game = {
   ],
   roundWinner: null,
   winningSquares: [],
+  xWinsCount: 0,
+  tiesCount: 0,
+  oWinsCount: 0,
 }; //accessable to all functions that come after.
 
 newGameMenu = document.getElementById("new-game-menu");
@@ -93,28 +96,28 @@ const determineWinOrTie = () => {
         nullCount++;
       }
       if (horizXCount === 3) {
-        console.log("horizontal x win at: " + x + "," + y);
+        //  console.log("horizontal x win at: " + x + "," + y);
         game.roundWinner = "x";
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${x - m},${y}`);
         }
       }
       if (horizOCount === 3) {
-        console.log("horizontal o win at: " + x + "," + y);
+        // console.log("horizontal o win at: " + x + "," + y);
         game.roundWinner = "o";
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${x - m},${y}`);
         }
       }
       if (vertXCount === 3) {
-        console.log("vertical x win at: " + y + "," + x);
+        // console.log("vertical x win at: " + y + "," + x);
         game.roundWinner = "x";
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${y},${x - m}`);
         }
       }
       if (vertOCount === 3) {
-        console.log("vertical o win at: " + y + "," + x);
+        // console.log("vertical o win at: " + y + "," + x);
         game.roundWinner = "o";
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${y},${x - m}`);
@@ -131,9 +134,9 @@ const determineWinOrTie = () => {
       game.board[0][0] === game.board[1][1] &&
       game.board[1][1] === game.board[2][2]
     ) {
-      console.log(
-        "diagonal " + game.board[1][1] + " win from bottom left to top right"
-      );
+      //   console.log(
+      //     "diagonal " + game.board[1][1] + " win from bottom left to top right"
+      //   );
       game.winningSquares.push("0,0", "1,1", "2,2");
       game.roundWinner = game.board[1][1];
     }
@@ -144,16 +147,16 @@ const determineWinOrTie = () => {
       game.board[0][2] === game.board[1][1] &&
       game.board[1][1] === game.board[2][0]
     ) {
-      console.log(
-        "diagonal " + game.board[1][1] + " win from bottom right to top left"
-      );
+      //   console.log(
+      //     "diagonal " + game.board[1][1] + " win from bottom right to top left"
+      //   );
       game.winningSquares.push("0,2", "1,1", "2,0");
       game.roundWinner = game.board[1][1];
     }
   }
 
   if (nullCount === 0) {
-    console.log("tie");
+    //   console.log("tie");
     game.roundWinner = "tie";
   }
 };
@@ -189,7 +192,7 @@ const cellClickHandler = (el) => {
     determineWinOrTie();
     //if winner dispaly it
     if (game.roundWinner && game.roundWinner !== "tie") {
-      console.log("winning squares:" + game.winningSquares);
+      //console.log("winning squares:" + game.winningSquares);
       game.winningSquares.forEach((square) => {
         el = document.getElementById(square);
         if (game.roundWinner === "x") {
@@ -197,15 +200,18 @@ const cellClickHandler = (el) => {
             "<img src='./assets/icon-x-dark-navy.svg' alt='x winning square' />";
           el.style.backgroundColor = "#65e9e4";
           el.style.boxShadow = "inset 0px -8px 0px #31c3bd";
-
-          //#31c3bd
+          game.xWinsCount++;
         } else {
           el.innerHTML =
             "<img src='./assets/icon-o-dark-navy.svg' alt='o winning square' />";
           el.style.backgroundColor = "#ffc860";
           el.style.boxShadow = "inset 0px -8px 0px #f2b137";
+          game.oWinsCount++;
         }
       });
+    }
+    if (game.roundWinner === "tie") {
+      game.tiesCount++;
     }
   }
 };
