@@ -69,17 +69,59 @@ const toggleHumanOrAI = (el) => {
 
 //game board helper functions
 
+const checkForWinOrTie = () => {
+  //will check for the win and show the winning line
+  //or determine if the game is drawn
+
+  let nullCount = 0;
+  for (y = 0; y <= 2; y++) {
+    let xCount = 0;
+    let oCount = 0;
+    for (x = 0; x <= 2; x++) {
+      if (game.board[x][y]) {
+        game.board[x][y] === "x" ? xCount++ : oCount++;
+      } else {
+        nullCount++;
+        x = 2; //may as well stop counting this line
+      }
+      if (xCount === 3) {
+        console.log("horizontal x win at: " + x + "," + y);
+      }
+      if (oCount === 3) {
+        console.log("horizontal o win at: " + x + "," + y);
+      }
+    }
+  }
+  for (x = 0; x <= 2; x++) {
+    let xCount = 0;
+    let oCount = 0;
+    for (y = 0; y <= 2; y++) {
+      if (game.board[x][y]) {
+        game.board[x][y] === "x" ? xCount++ : oCount++;
+      } else {
+        nullCount++;
+        y = 2;
+      }
+      if (xCount === 3) {
+        console.log("vertical x win at: " + x + "," + y);
+      }
+      if (oCount === 3) {
+        console.log("vertical o win at: " + x + "," + y);
+      }
+    }
+  }
+  //need to check the 2 diagonals
+
+  if (nullCount === 0) {
+    console.log("tie");
+  }
+};
+
 const cellClickHandler = (el) => {
-  // alert("clicked id:" + el.id);
-  //document.getElementById("content").innerHTML = "whatever";
-  //must find out if the cell is already taken, if so do nothing,
-  //if it is nit taken then set it to x or o based on whoevers turn it is,
   // if its the computers turn dont allow a click to do anything.
   //maybe on the computers turn we can test with a delay to make sure its locked out.]
   const turnIndicator = document.querySelector(".whos-turn img");
-  // console.log(turnIndicator.src);
-  //   whos-turn
-  const xCoord = el.id.charAt(0);
+  const xCoord = el.id.charAt(0); // 0,0 is bottom left on grid, 2,2 is top right
   const yCoord = el.id.charAt(2);
   console.log("x:" + xCoord + " " + " y:" + yCoord);
   console.log(game.board[xCoord][yCoord]);
@@ -104,5 +146,6 @@ const cellClickHandler = (el) => {
         "icon-x-silver.svg"
       );
     }
+    checkForWinOrTie();
   }
 };
