@@ -74,7 +74,7 @@ const toggleHumanOrAI = (el) => {
 
 //game board helper functions
 
-const updateScore = () => {
+const updateScoreHTML = () => {
   xTotal = document.querySelector("#x-score p");
   ties = document.querySelector("#ties p");
   oTotal = document.querySelector("#o-score p");
@@ -87,13 +87,15 @@ const updateScore = () => {
 const determineWinOrTie = () => {
   //will check for the win and show the winning line
   //or determine if the game is drawn
-
+  //will then update the game scores
+  let isWinner = false;
   let nullCount = 0;
   for (y = 0; y <= 2; y++) {
     let horizXCount = 0;
     let horizOCount = 0;
     let vertXCount = 0;
     let vertOCount = 0;
+
     for (x = 0; x <= 2; x++) {
       if (game.board[x][y]) {
         game.board[x][y] === "x" ? horizXCount++ : horizOCount++;
@@ -107,6 +109,7 @@ const determineWinOrTie = () => {
       }
       if (horizXCount === 3) {
         //  console.log("horizontal x win at: " + x + "," + y);
+        isWinner = true;
         game.roundWinner = "x";
         game.xWinsCount++;
         for (m = 0; m <= 2; m++) {
@@ -115,6 +118,7 @@ const determineWinOrTie = () => {
       }
       if (horizOCount === 3) {
         // console.log("horizontal o win at: " + x + "," + y);
+        isWinner = true;
         game.roundWinner = "o";
         game.oWinsCount++;
         for (m = 0; m <= 2; m++) {
@@ -123,6 +127,7 @@ const determineWinOrTie = () => {
       }
       if (vertXCount === 3) {
         // console.log("vertical x win at: " + y + "," + x);
+        isWinner = true;
         game.roundWinner = "x";
         game.xWinsCount++;
         for (m = 0; m <= 2; m++) {
@@ -131,6 +136,7 @@ const determineWinOrTie = () => {
       }
       if (vertOCount === 3) {
         // console.log("vertical o win at: " + y + "," + x);
+        isWinner = true;
         game.oWinsCount++;
         game.roundWinner = "o";
         for (m = 0; m <= 2; m++) {
@@ -154,9 +160,13 @@ const determineWinOrTie = () => {
       game.winningSquares.push("0,0", "1,1", "2,2");
       game.roundWinner = game.board[1][1];
       if (game.board[1][1] === "x") {
+        game.roundWinner = "x";
         game.xWinsCount++;
+        isWinner = true;
       } else {
+        game.roundWinner = "o";
         game.oWinsCount++;
+        isWinner = true;
       }
     }
 
@@ -172,18 +182,23 @@ const determineWinOrTie = () => {
       game.winningSquares.push("0,2", "1,1", "2,0");
       game.roundWinner = game.board[1][1];
       if (game.board[1][1] === "x") {
+        game.roundWinner = "x";
         game.xWinsCount++;
+        isWinner = true;
       } else {
+        game.roundWinner = "o";
         game.oWinsCount++;
+        isWinner = true;
       }
     }
   }
 
-  if (nullCount === 0) {
-    //   console.log("tie");
+  if (nullCount === 0 && isWinner === false) {
+    console.log("tie");
     game.roundWinner = "tie";
     game.tiesCount++;
   }
+  updateScoreHTML();
 };
 
 const cellClickHandler = (el) => {
@@ -237,5 +252,4 @@ const cellClickHandler = (el) => {
       //game.tiesCount++;
     }
   }
-  updateScore();
 };
