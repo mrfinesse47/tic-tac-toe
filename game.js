@@ -110,14 +110,14 @@ const determineWinOrTie = () => {
         console.log("vertical x win at: " + y + "," + x);
         game.roundWinner = "x";
         for (m = 0; m <= 2; m++) {
-          game.winningSquares.push(`${y - m},${x}`);
+          game.winningSquares.push(`${y},${x - m}`);
         }
       }
       if (vertOCount === 3) {
         console.log("vertical o win at: " + y + "," + x);
         game.roundWinner = "o";
         for (m = 0; m <= 2; m++) {
-          game.winningSquares.push(`${y - m},${x}`);
+          game.winningSquares.push(`${y},${x - m}`);
         }
       }
     }
@@ -187,5 +187,25 @@ const cellClickHandler = (el) => {
       );
     }
     determineWinOrTie();
+    //if winner dispaly it
+    if (game.roundWinner && game.roundWinner !== "tie") {
+      console.log("winning squares:" + game.winningSquares);
+      game.winningSquares.forEach((square) => {
+        el = document.getElementById(square);
+        if (game.roundWinner === "x") {
+          el.innerHTML =
+            "<img src='./assets/icon-x-dark-navy.svg' alt='x winning square' />";
+          el.style.backgroundColor = "#65e9e4";
+          el.style.boxShadow = "inset 0px -8px 0px #31c3bd";
+
+          //#31c3bd
+        } else {
+          el.innerHTML =
+            "<img src='./assets/icon-o-dark-navy.svg' alt='o winning square' />";
+          el.style.backgroundColor = "#ffc860";
+          el.style.boxShadow = "inset 0px -8px 0px #f2b137";
+        }
+      });
+    }
   }
 };
