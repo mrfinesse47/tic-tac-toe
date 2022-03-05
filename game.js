@@ -23,6 +23,8 @@ const game = {
     [null, null, null],
     [null, null, null],
   ],
+  roundWinner: null,
+  winningSquares: [],
 }; //accessable to all functions that come after.
 
 newGameMenu = document.getElementById("new-game-menu");
@@ -104,25 +106,31 @@ const checkForWinOrTie = () => {
       }
     }
   }
-  //   for (x = 0; x <= 2; x++) {
-  //     let xCount = 0;
-  //     let oCount = 0;
-  //     for (y = 0; y <= 2; y++) {
-  //       if (game.board[x][y]) {
-  //         game.board[x][y] === "x" ? xCount++ : oCount++;
-  //       } else {
-  //         nullCount++;
-  //         y = 2;
-  //       }
-  //       if (xCount === 3) {
-  //         console.log("vertical x win at: " + x + "," + y);
-  //       }
-  //       if (oCount === 3) {
-  //         console.log("vertical o win at: " + x + "," + y);
-  //       }
-  //     }
-  //   }
-  //need to check the 2 diagonals
+
+  if (game.board[1][1]) {
+    //make sure the diagonal is not empty
+
+    //check diagonal from bottom left to top right
+    if (
+      game.board[0][0] === game.board[1][1] &&
+      game.board[1][1] === game.board[2][2]
+    ) {
+      console.log(
+        "diagonal " + game.board[1][1] + " win from bottom left to top right"
+      );
+    }
+
+    //check diagonal from bottom right to top left
+
+    if (
+      game.board[0][2] === game.board[1][1] &&
+      game.board[1][1] === game.board[2][0]
+    ) {
+      console.log(
+        "diagonal " + game.board[1][1] + " win from bottom right to top left"
+      );
+    }
+  }
 
   if (nullCount === 0) {
     console.log("tie");
