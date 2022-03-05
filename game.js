@@ -94,15 +94,31 @@ const checkForWinOrTie = () => {
       }
       if (horizXCount === 3) {
         console.log("horizontal x win at: " + x + "," + y);
+        roundWinner = "x";
+        for (m = 0; m <= 2; m++) {
+          game.winningSquares.push(`${x - m},${y}`);
+        }
       }
       if (horizOCount === 3) {
         console.log("horizontal o win at: " + x + "," + y);
+        roundWinner = "o";
+        for (m = 0; m <= 2; m++) {
+          game.winningSquares.push(`${x - m},${y}`);
+        }
       }
       if (vertXCount === 3) {
         console.log("vertical x win at: " + y + "," + x);
+        roundWinner = "x";
+        for (m = 0; m <= 2; m++) {
+          game.winningSquares.push(`${y - m},${x}`);
+        }
       }
       if (vertOCount === 3) {
         console.log("vertical o win at: " + y + "," + x);
+        roundWinner = "o";
+        for (m = 0; m <= 2; m++) {
+          game.winningSquares.push(`${y - m},${x}`);
+        }
       }
     }
   }
@@ -139,7 +155,7 @@ const checkForWinOrTie = () => {
 
 const cellClickHandler = (el) => {
   // if its the computers turn dont allow a click to do anything.
-  //maybe on the computers turn we can test with a delay to make sure its locked out.]
+  //maybe on the computers turn we can test with a delay to make sure its locked out.
   const turnIndicator = document.querySelector(".whos-turn img");
   const xCoord = el.id.charAt(0); // 0,0 is bottom left on grid, 2,2 is top right
   const yCoord = el.id.charAt(2);
