@@ -74,6 +74,16 @@ const toggleHumanOrAI = (el) => {
 
 //game board helper functions
 
+const updateScore = () => {
+  xTotal = document.querySelector("#x-score p");
+  ties = document.querySelector("#ties p");
+  oTotal = document.querySelector("#o-score p");
+
+  xTotal.innerText = game.xWinsCount;
+  ties.innerText = game.tiesCount;
+  oTotal.innerText = game.oWinsCount;
+};
+
 const determineWinOrTie = () => {
   //will check for the win and show the winning line
   //or determine if the game is drawn
@@ -98,6 +108,7 @@ const determineWinOrTie = () => {
       if (horizXCount === 3) {
         //  console.log("horizontal x win at: " + x + "," + y);
         game.roundWinner = "x";
+        game.xWinsCount++;
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${x - m},${y}`);
         }
@@ -105,6 +116,7 @@ const determineWinOrTie = () => {
       if (horizOCount === 3) {
         // console.log("horizontal o win at: " + x + "," + y);
         game.roundWinner = "o";
+        game.oWinsCount++;
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${x - m},${y}`);
         }
@@ -112,12 +124,14 @@ const determineWinOrTie = () => {
       if (vertXCount === 3) {
         // console.log("vertical x win at: " + y + "," + x);
         game.roundWinner = "x";
+        game.xWinsCount++;
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${y},${x - m}`);
         }
       }
       if (vertOCount === 3) {
         // console.log("vertical o win at: " + y + "," + x);
+        game.oWinsCount++;
         game.roundWinner = "o";
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${y},${x - m}`);
@@ -139,6 +153,11 @@ const determineWinOrTie = () => {
       //   );
       game.winningSquares.push("0,0", "1,1", "2,2");
       game.roundWinner = game.board[1][1];
+      if (game.board[1][1] === "x") {
+        game.xWinsCount++;
+      } else {
+        game.oWinsCount++;
+      }
     }
 
     //check diagonal from bottom right to top left
@@ -152,12 +171,18 @@ const determineWinOrTie = () => {
       //   );
       game.winningSquares.push("0,2", "1,1", "2,0");
       game.roundWinner = game.board[1][1];
+      if (game.board[1][1] === "x") {
+        game.xWinsCount++;
+      } else {
+        game.oWinsCount++;
+      }
     }
   }
 
   if (nullCount === 0) {
     //   console.log("tie");
     game.roundWinner = "tie";
+    game.tiesCount++;
   }
 };
 
@@ -200,18 +225,17 @@ const cellClickHandler = (el) => {
             "<img src='./assets/icon-x-dark-navy.svg' alt='x winning square' />";
           el.style.backgroundColor = "#65e9e4";
           el.style.boxShadow = "inset 0px -8px 0px #31c3bd";
-          game.xWinsCount++;
         } else {
           el.innerHTML =
             "<img src='./assets/icon-o-dark-navy.svg' alt='o winning square' />";
           el.style.backgroundColor = "#ffc860";
           el.style.boxShadow = "inset 0px -8px 0px #f2b137";
-          game.oWinsCount++;
         }
       });
     }
     if (game.roundWinner === "tie") {
-      game.tiesCount++;
+      //game.tiesCount++;
     }
   }
+  updateScore();
 };
