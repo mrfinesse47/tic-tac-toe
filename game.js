@@ -71,7 +71,7 @@ const toggleHumanOrAI = (el) => {
 
 //game board helper functions
 
-const checkForWinOrTie = () => {
+const determineWinOrTie = () => {
   //will check for the win and show the winning line
   //or determine if the game is drawn
 
@@ -94,28 +94,28 @@ const checkForWinOrTie = () => {
       }
       if (horizXCount === 3) {
         console.log("horizontal x win at: " + x + "," + y);
-        roundWinner = "x";
+        game.roundWinner = "x";
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${x - m},${y}`);
         }
       }
       if (horizOCount === 3) {
         console.log("horizontal o win at: " + x + "," + y);
-        roundWinner = "o";
+        game.roundWinner = "o";
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${x - m},${y}`);
         }
       }
       if (vertXCount === 3) {
         console.log("vertical x win at: " + y + "," + x);
-        roundWinner = "x";
+        game.roundWinner = "x";
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${y - m},${x}`);
         }
       }
       if (vertOCount === 3) {
         console.log("vertical o win at: " + y + "," + x);
-        roundWinner = "o";
+        game.roundWinner = "o";
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${y - m},${x}`);
         }
@@ -134,6 +134,8 @@ const checkForWinOrTie = () => {
       console.log(
         "diagonal " + game.board[1][1] + " win from bottom left to top right"
       );
+      game.winningSquares.push("0,0", "1,1", "2,2");
+      game.roundWinner = game.board[1][1];
     }
 
     //check diagonal from bottom right to top left
@@ -145,11 +147,14 @@ const checkForWinOrTie = () => {
       console.log(
         "diagonal " + game.board[1][1] + " win from bottom right to top left"
       );
+      game.winningSquares.push("0,2", "1,1", "2,0");
+      game.roundWinner = game.board[1][1];
     }
   }
 
   if (nullCount === 0) {
     console.log("tie");
+    game.roundWinner = "tie";
   }
 };
 
@@ -159,10 +164,9 @@ const cellClickHandler = (el) => {
   const turnIndicator = document.querySelector(".whos-turn img");
   const xCoord = el.id.charAt(0); // 0,0 is bottom left on grid, 2,2 is top right
   const yCoord = el.id.charAt(2);
-  console.log("x:" + xCoord + " " + " y:" + yCoord);
-  console.log(game.board[xCoord][yCoord]);
 
-  if (!game.board[xCoord][yCoord]) {
+  if (!game.board[xCoord][yCoord] && !game.roundWinner) {
+    //only adds and x or o if there is no round winner and the square already isnt occupied
     if (game.turn === "x") {
       el.innerHTML = "<img src='./assets/icon-x.svg' alt='x' />";
       game.turn = "o";
@@ -182,6 +186,6 @@ const cellClickHandler = (el) => {
         "icon-x-silver.svg"
       );
     }
-    checkForWinOrTie();
+    determineWinOrTie();
   }
 };
