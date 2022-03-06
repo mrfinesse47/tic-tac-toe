@@ -23,16 +23,15 @@ const game = {
   aiMove() {
     //pick 2 random numbers 0-2 try board if its occupied try again
     this.isComputerMoving = true;
+    //makes it so its locked out during comps move
 
     setTimeout(() => {
-      // console.log("timeout");
       if (!this.roundWinner) {
         let numOne;
         let numTwo;
         do {
           numOne = Math.floor(Math.random() * 3);
           numTwo = Math.floor(Math.random() * 3);
-          //  console.log("num1:" + numOne + " num2:" + numTwo);
         } while (
           !cellClickHandler(
             document.getElementById(`${numOne},${numTwo}`),
@@ -41,7 +40,7 @@ const game = {
         );
         this.isComputerMoving = false;
       }
-    }, 1000);
+    }, 1000); //the delay between turns when up against computer
   },
   toggleTurn() {
     if (this.turn === "x") {
@@ -113,10 +112,8 @@ const toggleHumanOrAI = (el) => {
 
   viewController("mainGame");
 
-  //will have to make ai move first if player selects o and ai opponent
-
   if (game.p1Mark === "o" && !game.isHumanOpponent) {
-    game.aiMove();
+    game.aiMove(); //ai moves first if you pick o and against computer
   }
 };
 
@@ -262,8 +259,6 @@ function determineWinOrTie() {
 }
 
 function cellClickHandler(el, isAICaller) {
-  // if its the computers turn dont allow a click to do anything.
-  //maybe on the computers turn we can test with a delay to make sure its locked out.
   //returns true if a cell is changed, false if no change
 
   if (isAICaller || !game.isComputerMoving) {
