@@ -22,19 +22,22 @@ const game = {
   turn: "x",
   aiMove() {
     //pick 2 random numbers 0-2 try board if its occupied try again
+    this.isComputerMoving = true;
 
     setTimeout(() => {
-      console.log("timeout");
+      // console.log("timeout");
       if (!this.roundWinner) {
-        this.isComputerMoving = true;
         let numOne;
         let numTwo;
         do {
           numOne = Math.floor(Math.random() * 3);
           numTwo = Math.floor(Math.random() * 3);
-          console.log("num1:" + numOne + " num2:" + numTwo);
+          //  console.log("num1:" + numOne + " num2:" + numTwo);
         } while (
-          !cellClickHandler(document.getElementById(`${numOne},${numTwo}`))
+          !cellClickHandler(
+            document.getElementById(`${numOne},${numTwo}`),
+            true
+          )
         );
         this.isComputerMoving = false;
       }
@@ -44,13 +47,13 @@ const game = {
     if (this.turn === "x") {
       this.turn = "o";
       if (this.turn !== this.p1Mark && !this.isHumanOpponent) {
-        console.log("ai move");
+        //.log("ai move");
         this.aiMove();
       }
     } else {
       this.turn = "x";
       if (this.turn !== this.p1Mark && !this.isHumanOpponent) {
-        console.log("ai move");
+        // console.log("ai move");
         this.aiMove();
       }
     }
@@ -153,7 +156,6 @@ function determineWinOrTie() {
         nullCount++;
       }
       if (horizXCount === 3) {
-        //  console.log("horizontal x win at: " + x + "," + y);
         isWinner = true;
         game.roundWinner = "x";
         game.xWinsCount++;
@@ -162,7 +164,6 @@ function determineWinOrTie() {
         }
       }
       if (horizOCount === 3) {
-        // console.log("horizontal o win at: " + x + "," + y);
         isWinner = true;
         game.roundWinner = "o";
         game.oWinsCount++;
@@ -199,9 +200,6 @@ function determineWinOrTie() {
       game.board[0][0] === game.board[1][1] &&
       game.board[1][1] === game.board[2][2]
     ) {
-      //   console.log(
-      //     "diagonal " + game.board[1][1] + " win from bottom left to top right"
-      //   );
       game.winningSquares.push("0,0", "1,1", "2,2");
       game.roundWinner = game.board[1][1];
       if (game.board[1][1] === "x") {
@@ -221,9 +219,6 @@ function determineWinOrTie() {
       game.board[0][2] === game.board[1][1] &&
       game.board[1][1] === game.board[2][0]
     ) {
-      //   console.log(
-      //     "diagonal " + game.board[1][1] + " win from bottom right to top left"
-      //   );
       game.winningSquares.push("0,2", "1,1", "2,0");
       game.roundWinner = game.board[1][1];
       if (game.board[1][1] === "x") {
@@ -266,43 +261,46 @@ function determineWinOrTie() {
   updateScoreHTML();
 }
 
-function cellClickHandler(el) {
+function cellClickHandler(el, isAICaller) {
   // if its the computers turn dont allow a click to do anything.
   //maybe on the computers turn we can test with a delay to make sure its locked out.
   //returns true if a cell is changed, false if no change
 
-  const turnIndicator = document.querySelector(".whos-turn img");
-  const xCoord = el.id.charAt(0); // 0,0 is bottom left on grid, 2,2 is top right
-  const yCoord = el.id.charAt(2);
+  if (isAICaller || !game.isComputerMoving) {
+    //makes sure its locked out for the delay when it is the AIs turn
+    const turnIndicator = document.querySelector(".whos-turn img");
+    const xCoord = el.id.charAt(0); // 0,0 is bottom left on grid, 2,2 is top right
+    const yCoord = el.id.charAt(2);
 
-  if (!game.board[xCoord][yCoord] && !game.roundWinner) {
-    //only adds and x or o if there is no round winner and the square already isnt occupied
-    if (game.turn === "x") {
-      el.innerHTML = "<img src='./assets/icon-x.svg' alt='x' />";
-      // game.turn = "o";
-      game.toggleTurn();
-      game.board[xCoord][yCoord] = "x";
-      //toggles the indicator at the top as to whos turn it is
-      turnIndicator.src = turnIndicator.src.replace(
-        "icon-x-silver.svg",
-        "icon-o-silver.svg"
-      );
-    } else {
-      el.innerHTML = "<img src='./assets/icon-o.svg' alt='o' />";
-      // game.turn = "x";
-      game.toggleTurn();
-      game.board[xCoord][yCoord] = "o";
-      //toggles the indicator at the top as to whos turn it is
-      turnIndicator.src = turnIndicator.src.replace(
-        "icon-o-silver.svg",
-        "icon-x-silver.svg"
-      );
+    if (!game.board[xCoord][yCoord] && !game.roundWinner) {
+      //only adds and x or o if there is no round winner and the square already isnt occupied
+      if (game.turn === "x") {
+        el.innerHTML = "<img src='./assets/icon-x.svg' alt='x' />";
+        // game.turn = "o";
+        game.toggleTurn();
+        game.board[xCoord][yCoord] = "x";
+        //toggles the indicator at the top as to whos turn it is
+        turnIndicator.src = turnIndicator.src.replace(
+          "icon-x-silver.svg",
+          "icon-o-silver.svg"
+        );
+      } else {
+        el.innerHTML = "<img src='./assets/icon-o.svg' alt='o' />";
+        // game.turn = "x";
+        game.toggleTurn();
+        game.board[xCoord][yCoord] = "o";
+        //toggles the indicator at the top as to whos turn it is
+        turnIndicator.src = turnIndicator.src.replace(
+          "icon-o-silver.svg",
+          "icon-x-silver.svg"
+        );
+      }
+      determineWinOrTie();
+      //if winner dispaly it
+
+      return true;
     }
-    determineWinOrTie();
-    //if winner dispaly it
-    console.log("can change");
-    return true;
   }
-  console.log("cannot change");
+
   return false;
 }
