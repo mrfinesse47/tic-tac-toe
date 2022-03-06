@@ -29,6 +29,11 @@ h2 {
   letter-spacing: 1px;
 }
 
+.btn-md {
+}
+
+.btn-sm {
+}
 .gold {
   box-shadow: inset 0px -8px 0px #cc8b13;
   background-color: $light-yellow;
@@ -47,6 +52,11 @@ h2 {
 .blue:hover {
   background-color: $light-blue-hover;
   cursor: pointer;
+}
+
+.silver {
+  box-shadow: inset 0px -8px 0px #6b8997;
+  background-color: $silver;
 }
 
 .menu-selected-character {

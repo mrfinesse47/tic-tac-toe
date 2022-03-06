@@ -48,6 +48,12 @@ h2 {
   cursor: pointer;
 }
 
+.silver {
+  -webkit-box-shadow: inset 0px -8px 0px #6b8997;
+          box-shadow: inset 0px -8px 0px #6b8997;
+  background-color: #a8bfc9;
+}
+
 .menu-selected-character {
   width: 131.99px;
   height: 54px;
