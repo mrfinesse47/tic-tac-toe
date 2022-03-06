@@ -19,17 +19,25 @@ const game = {
   p2Mark: "x",
   isHumanOpponent: null,
   turn: "x",
-  aiMove() {},
+  aiMove() {
+    //pick 2 random numbers 0-2 try board if its occupied try again
+
+    const numOne = Math.floor(Math.random() * 3);
+    const numTwo = Math.floor(Math.random() * 3);
+    console.log("num1:" + numOne + " num2:" + numTwo);
+  },
   toggleTurn() {
     if (this.turn === "x") {
       this.turn = "o";
       if (this.turn !== this.p1Mark && !this.isHumanOpponent) {
         console.log("ai move");
+        this.aiMove();
       }
     } else {
       this.turn = "x";
       if (this.turn !== this.p1Mark && !this.isHumanOpponent) {
         console.log("ai move");
+        this.aiMove();
       }
     }
   },
@@ -87,6 +95,8 @@ const toggleHumanOrAI = (el) => {
     : (game.isHumanOpponent = false);
 
   viewController("mainGame");
+
+  //will have to make ai move first if player selects o and ai opponent
 };
 
 //game board helper functions
@@ -101,7 +111,7 @@ const updateScoreHTML = () => {
   oTotal.innerText = game.oWinsCount;
 };
 
-const determineWinOrTie = () => {
+function determineWinOrTie() {
   //will check for the win and show the winning line
   //or determine if the game is drawn
   //will then update the game scores
@@ -215,10 +225,30 @@ const determineWinOrTie = () => {
     game.roundWinner = "tie";
     game.tiesCount++;
   }
+  if (game.roundWinner && game.roundWinner !== "tie") {
+    //console.log("winning squares:" + game.winningSquares);
+    game.winningSquares.forEach((square) => {
+      el = document.getElementById(square);
+      if (game.roundWinner === "x") {
+        el.innerHTML =
+          "<img src='./assets/icon-x-dark-navy.svg' alt='x winning square' />";
+        el.style.backgroundColor = "#65e9e4";
+        el.style.boxShadow = "inset 0px -8px 0px #31c3bd";
+      } else {
+        el.innerHTML =
+          "<img src='./assets/icon-o-dark-navy.svg' alt='o winning square' />";
+        el.style.backgroundColor = "#ffc860";
+        el.style.boxShadow = "inset 0px -8px 0px #f2b137";
+      }
+    });
+  }
+  if (game.roundWinner === "tie") {
+    //game.tiesCount++;
+  }
   updateScoreHTML();
-};
+}
 
-const cellClickHandler = (el) => {
+function cellClickHandler(el) {
   // if its the computers turn dont allow a click to do anything.
   //maybe on the computers turn we can test with a delay to make sure its locked out.
   const turnIndicator = document.querySelector(".whos-turn img");
@@ -250,25 +280,5 @@ const cellClickHandler = (el) => {
     }
     determineWinOrTie();
     //if winner dispaly it
-    if (game.roundWinner && game.roundWinner !== "tie") {
-      //console.log("winning squares:" + game.winningSquares);
-      game.winningSquares.forEach((square) => {
-        el = document.getElementById(square);
-        if (game.roundWinner === "x") {
-          el.innerHTML =
-            "<img src='./assets/icon-x-dark-navy.svg' alt='x winning square' />";
-          el.style.backgroundColor = "#65e9e4";
-          el.style.boxShadow = "inset 0px -8px 0px #31c3bd";
-        } else {
-          el.innerHTML =
-            "<img src='./assets/icon-o-dark-navy.svg' alt='o winning square' />";
-          el.style.backgroundColor = "#ffc860";
-          el.style.boxShadow = "inset 0px -8px 0px #f2b137";
-        }
-      });
-    }
-    if (game.roundWinner === "tie") {
-      //game.tiesCount++;
-    }
   }
-};
+}
