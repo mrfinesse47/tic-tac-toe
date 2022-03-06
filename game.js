@@ -16,8 +16,23 @@ const viewController = (view) => {
 
 const game = {
   p1Mark: "o", //default
+  p2Mark: "x",
   isHumanOpponent: null,
   turn: "x",
+  aiMove() {},
+  toggleTurn() {
+    if (this.turn === "x") {
+      this.turn = "o";
+      if (this.turn !== this.p1Mark && !this.isHumanOpponent) {
+        console.log("ai move");
+      }
+    } else {
+      this.turn = "x";
+      if (this.turn !== this.p1Mark && !this.isHumanOpponent) {
+        console.log("ai move");
+      }
+    }
+  },
   board: [
     [null, null, null],
     [null, null, null],
@@ -49,6 +64,7 @@ const toggleSelection = (el) => {
     x.classList.add("menu-selected-character");
 
     game.p1Mark = "x";
+    game.p2Mark = "o";
 
     xImg.src = xImg.src.replace("silver", "dark-navy");
     oImg.src = oImg.src.replace("dark-navy", "silver");
@@ -58,6 +74,7 @@ const toggleSelection = (el) => {
     o.classList.add("menu-selected-character");
 
     game.p1Mark = "o";
+    game.p2Mark = "x";
 
     xImg.src = xImg.src.replace("dark-navy", "silver");
     oImg.src = oImg.src.replace("silver", "dark-navy");
@@ -212,7 +229,8 @@ const cellClickHandler = (el) => {
     //only adds and x or o if there is no round winner and the square already isnt occupied
     if (game.turn === "x") {
       el.innerHTML = "<img src='./assets/icon-x.svg' alt='x' />";
-      game.turn = "o";
+      // game.turn = "o";
+      game.toggleTurn();
       game.board[xCoord][yCoord] = "x";
       //toggles the indicator at the top as to whos turn it is
       turnIndicator.src = turnIndicator.src.replace(
@@ -221,7 +239,8 @@ const cellClickHandler = (el) => {
       );
     } else {
       el.innerHTML = "<img src='./assets/icon-o.svg' alt='o' />";
-      game.turn = "x";
+      // game.turn = "x";
+      game.toggleTurn();
       game.board[xCoord][yCoord] = "o";
       //toggles the indicator at the top as to whos turn it is
       turnIndicator.src = turnIndicator.src.replace(
