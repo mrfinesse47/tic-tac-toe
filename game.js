@@ -10,6 +10,8 @@ const viewController = (view) => {
       newGameMenu.style.display = "block";
       gameBoard.style.display = "none";
       break;
+    case "modal":
+      break;
     // default:
   }
 };
@@ -40,19 +42,17 @@ const game = {
         );
         this.isComputerMoving = false;
       }
-    }, 1000); //the delay between turns when up against computer
+    }, 600); //the delay between turns when up against computer
   },
   toggleTurn() {
     if (this.turn === "x") {
       this.turn = "o";
       if (this.turn !== this.p1Mark && !this.isHumanOpponent) {
-        //.log("ai move");
         this.aiMove();
       }
     } else {
       this.turn = "x";
       if (this.turn !== this.p1Mark && !this.isHumanOpponent) {
-        // console.log("ai move");
         this.aiMove();
       }
     }
@@ -169,7 +169,6 @@ function determineWinOrTie() {
         }
       }
       if (vertXCount === 3) {
-        // console.log("vertical x win at: " + y + "," + x);
         isWinner = true;
         game.roundWinner = "x";
         game.xWinsCount++;
@@ -178,7 +177,6 @@ function determineWinOrTie() {
         }
       }
       if (vertOCount === 3) {
-        // console.log("vertical o win at: " + y + "," + x);
         isWinner = true;
         game.oWinsCount++;
         game.roundWinner = "o";
@@ -191,7 +189,6 @@ function determineWinOrTie() {
 
   if (game.board[1][1]) {
     //make sure the diagonal is not empty
-
     //check diagonal from bottom left to top right
     if (
       game.board[0][0] === game.board[1][1] &&
@@ -236,7 +233,6 @@ function determineWinOrTie() {
     game.tiesCount++;
   }
   if (game.roundWinner && game.roundWinner !== "tie") {
-    //console.log("winning squares:" + game.winningSquares);
     game.winningSquares.forEach((square) => {
       el = document.getElementById(square);
       if (game.roundWinner === "x") {
@@ -244,16 +240,20 @@ function determineWinOrTie() {
           "<img src='./assets/icon-x-dark-navy.svg' alt='x winning square' />";
         el.style.backgroundColor = "#65e9e4";
         el.style.boxShadow = "inset 0px -8px 0px #31c3bd";
+        viewController("modal");
       } else {
         el.innerHTML =
           "<img src='./assets/icon-o-dark-navy.svg' alt='o winning square' />";
         el.style.backgroundColor = "#ffc860";
         el.style.boxShadow = "inset 0px -8px 0px #f2b137";
+        viewController("modal");
       }
     });
   }
   if (game.roundWinner === "tie") {
     //game.tiesCount++;
+    //show module
+    viewController("modal");
   }
   updateScoreHTML();
 }

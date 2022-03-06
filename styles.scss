@@ -239,3 +239,16 @@ h2 {
     }
   }
 }
+.modal {
+  width: 100%;
+  background-color: $semi-dark-navy;
+  text-align: center;
+  .result {
+    display: flex;
+    justify-content: center;
+  }
+
+  p {
+    text-align: center;
+  }
+}
