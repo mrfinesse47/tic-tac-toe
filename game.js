@@ -5,12 +5,19 @@ const viewController = (view) => {
     case "mainGame":
       newGameMenu.style.display = "none";
       gameBoard.style.display = "block";
+      modal.style.display = "block";
       break;
     case "newGame":
       newGameMenu.style.display = "block";
       gameBoard.style.display = "none";
+      modal.style.display = "none";
       break;
-    case "modal":
+    case "modal-open":
+      modal.style.display = "block";
+      const body = document.querySelector("#game-board");
+      body.style.opacity = "0.5";
+      body.classList.add("fade");
+
       break;
     // default:
   }
@@ -71,8 +78,11 @@ const game = {
 
 newGameMenu = document.getElementById("new-game-menu");
 gameBoard = document.getElementById("game-board");
+modal = document.getElementById("modal");
 
 viewController("newGame"); //initially loads with new game view
+
+//viewController("modal-open");
 
 //main menu helper functions
 
@@ -111,6 +121,7 @@ const toggleHumanOrAI = (el) => {
     : (game.isHumanOpponent = false);
 
   viewController("mainGame");
+  viewController("modal-open");
 
   if (game.p1Mark === "o" && !game.isHumanOpponent) {
     game.aiMove(); //ai moves first if you pick o and against computer

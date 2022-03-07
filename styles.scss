@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+.fade {
+  opacity: 0.5;
+}
+
 h3 {
   padding: 0;
   margin: 0;
@@ -256,6 +260,14 @@ h2 {
   background-color: $semi-dark-navy;
   text-align: center;
   z-index: 10;
+
+  opacity: 1 !important;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   .message {
     color: $silver;
     padding-top: 40px;
