@@ -119,14 +119,18 @@
     <!-- Oh no, you lost You won! Player -->
 
     <div class="modal" id="solo-player-loss">
-      <p>OH NO, YOU LOST...</p>
+      <p class="message">OH NO, YOU LOST...</p>
       <div class="result">
         <img src="./assets/icon-o.svg" alt="o" />
-        <p>TAKES THE ROUND</p>
+        <p class="winner">TAKES THE ROUND</p>
       </div>
       <div class="options">
-        <button class="btn-primary silver" id="" onclick=""></button>
-        <button class="btn-primary gold" id="" onclick=""></button>
+        <button class="btn-primary btn-sm silver" id="quit" onclick="">
+          Quit
+        </button>
+        <button class="btn-primary btn-md gold" id="next" onclick="">
+          Next Round
+        </button>
       </div>
     </div>
 

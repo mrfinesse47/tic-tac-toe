@@ -30,9 +30,11 @@ h2 {
 }
 
 .btn-md {
+  width: 146px;
 }
 
 .btn-sm {
+  width: 76px;
 }
 .gold {
   box-shadow: inset 0px -8px 0px #cc8b13;
@@ -253,12 +255,39 @@ h2 {
   width: 100%;
   background-color: $semi-dark-navy;
   text-align: center;
+  z-index: 10;
+  .message {
+    color: $silver;
+    padding-top: 40px;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+  }
+
+  .winner {
+    color: $light-yellow;
+    font-size: 24px;
+    letter-spacing: 2.5px;
+    margin: 0;
+  }
   .result {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   p {
     text-align: center;
+  }
+  .options {
+    padding-bottom: 40px;
+    margin-top: 24px;
+  }
+  .silver {
+    margin-right: 16px;
   }
 }

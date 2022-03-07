@@ -26,6 +26,14 @@ h2 {
   letter-spacing: 1px;
 }
 
+.btn-md {
+  width: 146px;
+}
+
+.btn-sm {
+  width: 76px;
+}
+
 .gold {
   -webkit-box-shadow: inset 0px -8px 0px #cc8b13;
           box-shadow: inset 0px -8px 0px #cc8b13;
@@ -348,6 +356,27 @@ h2 {
   width: 100%;
   background-color: #1f3641;
   text-align: center;
+  z-index: 10;
+}
+
+.modal .message {
+  color: #a8bfc9;
+  padding-top: 40px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.modal img {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+
+.modal .winner {
+  color: #f2b137;
+  font-size: 24px;
+  letter-spacing: 2.5px;
+  margin: 0;
 }
 
 .modal .result {
@@ -357,9 +386,21 @@ h2 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .modal p {
   text-align: center;
+}
+
+.modal .options {
+  padding-bottom: 40px;
+  margin-top: 24px;
+}
+
+.modal .silver {
+  margin-right: 16px;
 }
 /*# sourceMappingURL=styles.css.map */
