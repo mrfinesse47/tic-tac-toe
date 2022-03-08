@@ -14,9 +14,15 @@ const viewController = (view) => {
       break;
     case "modal-open":
       modal.style.display = "block";
-      const body = document.querySelector("#game-board");
-      body.style.opacity = "0.5";
-      body.classList.add("fade");
+      const gameBoard = document.querySelector("#game-board");
+      gameBoard.style.opacity = "0.5";
+      gameBoard.classList.add("fade");
+      break;
+    case "modal-open":
+      modal.style.display = "none";
+      const gameBoard = document.querySelector("#game-board");
+      gameBoard.style.opacity = "0.5";
+      gameBoard.classList.add("fade");
 
       break;
     // default:
@@ -309,4 +315,10 @@ function cellClickHandler(el, isAICaller) {
   }
 
   return false;
+}
+
+//modal utility functions
+
+function generateModal() {
+  //this will read in the game objecr and show the modal based on the state of game
 }
