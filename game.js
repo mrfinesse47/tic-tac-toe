@@ -1,11 +1,12 @@
 //will control the views and the game
 
 const viewController = (view) => {
+  const gameBoard = document.querySelector("#game-board");
   switch (view) {
     case "mainGame":
       newGameMenu.style.display = "none";
       gameBoard.style.display = "block";
-      modal.style.display = "block";
+      modal.style.display = "none";
       break;
     case "newGame":
       newGameMenu.style.display = "block";
@@ -13,15 +14,14 @@ const viewController = (view) => {
       modal.style.display = "none";
       break;
     case "modal-open":
+      generateModal();
       modal.style.display = "block";
-      const gameBoard = document.querySelector("#game-board");
       gameBoard.style.opacity = "0.5";
       gameBoard.classList.add("fade");
       break;
-    case "modal-open":
+    case "modal-close":
       modal.style.display = "none";
-      const gameBoard = document.querySelector("#game-board");
-      gameBoard.style.opacity = "0.5";
+      gameBoard.style.opacity = "1.0";
       gameBoard.classList.add("fade");
 
       break;
@@ -127,7 +127,7 @@ const toggleHumanOrAI = (el) => {
     : (game.isHumanOpponent = false);
 
   viewController("mainGame");
-  viewController("modal-open");
+  //viewController("modal-open");
 
   if (game.p1Mark === "o" && !game.isHumanOpponent) {
     game.aiMove(); //ai moves first if you pick o and against computer
@@ -257,20 +257,20 @@ function determineWinOrTie() {
           "<img src='./assets/icon-x-dark-navy.svg' alt='x winning square' />";
         el.style.backgroundColor = "#65e9e4";
         el.style.boxShadow = "inset 0px -8px 0px #31c3bd";
-        viewController("modal");
+        viewController("modal-open");
       } else {
         el.innerHTML =
           "<img src='./assets/icon-o-dark-navy.svg' alt='o winning square' />";
         el.style.backgroundColor = "#ffc860";
         el.style.boxShadow = "inset 0px -8px 0px #f2b137";
-        viewController("modal");
+        viewController("modal-open");
       }
     });
   }
   if (game.roundWinner === "tie") {
     //game.tiesCount++;
     //show module
-    viewController("modal");
+    viewController("modal-open");
   }
   updateScoreHTML();
 }
@@ -320,5 +320,42 @@ function cellClickHandler(el, isAICaller) {
 //modal utility functions
 
 function generateModal() {
-  //this will read in the game objecr and show the modal based on the state of game
+  const modalMessage = document.querySelector("#modal .message");
+  const gameResult = document.getElementById("winner");
+  const image = document.querySelector("#modal img");
+  image.style.display = "block";
+
+  gameResult.classList.remove(...gameResult.classList);
+  //removes all styling
+
+  //this will read in the game object and show the modal based on the state of game
+  if (game.roundWinner === "tie") {
+    //game tied
+    modalMessage.innerHTML = "";
+    gameResult.innerHTML = "Round Tied";
+    gameResult.classList.add("tied");
+    image.style.display = "none";
+  } else {
+    gameResult.innerHTML = "takes the round";
+    gameResult.classList.add(`${game.roundWinner}-winner`);
+    image.src = `./assets/icon-${game.roundWinner}.svg`;
+    if (!game.isHumanOpponent) {
+      //if against computer
+
+      if (game.p1Mark === game.roundWinner) {
+        //if you won against computer
+        modalMessage.innerHTML = "PLAYER 1 WINS!";
+      } else {
+        //if you lost against computer
+        modalMessage.innerHTML = "oh no, you lost...";
+      }
+    } else {
+      //if against another player
+      if (game.p1Mark === game.roundWinner) {
+        modalMessage.innerHTML = "PLAYER 1 WINS!";
+      } else {
+        modalMessage.innerHTML = "PLAYER 2 WINS!";
+      }
+    }
+  }
 }

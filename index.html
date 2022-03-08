@@ -102,7 +102,7 @@
       </main>
       <footer>
         <div class="score" id="x-score">
-          <h3>X (P1)</h3>
+          <h3>X (P<span id="who-is-x">1</span>)</h3>
           <p>0</p>
         </div>
         <div class="score" id="ties">
@@ -110,7 +110,7 @@
           <p>0</p>
         </div>
         <div class="score" id="o-score">
-          <h3>O (P2)</h3>
+          <h3>O (P<span id="who-is-o">2</span>)</h3>
           <p>0</p>
         </div>
       </footer>
@@ -121,8 +121,8 @@
     <div class="modal" id="modal">
       <p class="message">OH NO, YOU LOST...</p>
       <div class="result">
-        <img src="./assets/icon-o.svg" alt="o" />
-        <p class="winner">TAKES THE ROUND</p>
+        <img src="./assets/icon-x.svg" alt="o" />
+        <p class="x-winner" id="winner">TAKES THE ROUND</p>
       </div>
       <div class="options">
         <button class="btn-primary btn-sm silver" id="quit" onclick="">

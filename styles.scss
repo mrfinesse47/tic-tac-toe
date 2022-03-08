@@ -65,6 +65,11 @@ h2 {
   background-color: $silver;
 }
 
+.silver:hover {
+  background-color: $silver-hover;
+  cursor: pointer;
+}
+
 .menu-selected-character {
   width: 131.99px;
   height: 54px;
@@ -144,6 +149,10 @@ h2 {
 }
 
 #game-board {
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%); if i want to center it
   width: 328px; //mobile first
   margin: 0 auto;
   margin-top: 24px;
@@ -280,12 +289,21 @@ h2 {
     margin-right: 8px;
   }
 
-  .winner {
-    color: $light-yellow;
+  #winner {
     font-size: 24px;
     letter-spacing: 2.5px;
     margin: 0;
   }
+  .o-winner {
+    color: $light-yellow;
+  }
+  .x-winner {
+    color: $light-blue;
+  }
+  .tied {
+    color: $silver;
+  }
+
   .result {
     display: flex;
     justify-content: center;

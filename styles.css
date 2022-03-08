@@ -66,6 +66,11 @@ h2 {
   background-color: #a8bfc9;
 }
 
+.silver:hover {
+  background-color: #dbe8ed;
+  cursor: pointer;
+}
+
 .menu-selected-character {
   width: 131.99px;
   height: 54px;
@@ -382,11 +387,22 @@ h2 {
   margin-right: 8px;
 }
 
-.modal .winner {
-  color: #f2b137;
+.modal #winner {
   font-size: 24px;
   letter-spacing: 2.5px;
   margin: 0;
+}
+
+.modal .o-winner {
+  color: #f2b137;
+}
+
+.modal .x-winner {
+  color: #31c3bd;
+}
+
+.modal .tied {
+  color: #a8bfc9;
 }
 
 .modal .result {
