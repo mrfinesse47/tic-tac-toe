@@ -20,26 +20,26 @@ const viewController = (view) => {
         generateModal();
         modal.style.display = "block";
         gameBoard.style.opacity = "0.5";
-        gameBoard.classList.add("fade");
+        // gameBoard.classList.add("fade");
       }, 1500);
 
       break;
     case "modal-close":
       modal.style.display = "none";
       gameBoard.style.opacity = "1.0";
-      gameBoard.classList.add("fade");
+      //gameBoard.classList.add("fade");
 
       break;
     case "reset-modal-open":
       resetModal.style.display = "block";
       gameBoard.style.opacity = "0.5";
-      gameBoard.classList.add("fade");
+      // gameBoard.classList.add("fade");
 
       break;
     case "reset-modal-close":
       resetModal.style.display = "none";
       gameBoard.style.opacity = "1.0";
-      gameBoard.classList.add("fade");
+      // gameBoard.classList.add("fade");
 
       break;
     // default:
@@ -51,7 +51,7 @@ const game = {
   p2Mark: "x",
   isHumanOpponent: null,
   isComputerMoving: null,
-  turn: "x",
+  turn: "o",
   aiMove() {
     //pick 2 random numbers 0-2 try board if its occupied try again
     this.isComputerMoving = true;
@@ -147,8 +147,8 @@ const toggleHumanOrAI = (el) => {
   viewController("mainGame");
   //viewController("modal-open");
 
-  if (game.p1Mark === "o" && !game.isHumanOpponent) {
-    game.aiMove(); //ai moves first if you pick o and against computer
+  if (game.p1Mark !== game.turn && !game.isHumanOpponent) {
+    game.aiMove(); //ai moves first if it is its turn
   }
 };
 
@@ -350,11 +350,11 @@ function generateModal() {
   if (game.roundWinner === "tie") {
     //game tied
     modalMessage.innerHTML = "";
-    gameResult.innerHTML = "Round Tied";
+    gameResult.innerHTML = "ROUND TIED";
     gameResult.classList.add("tied");
     image.style.display = "none";
   } else {
-    gameResult.innerHTML = "takes the round";
+    gameResult.innerHTML = "TAKES THE ROUND";
     gameResult.classList.add(`${game.roundWinner}-winner`);
     image.src = `./assets/icon-${game.roundWinner}.svg`;
     if (!game.isHumanOpponent) {
@@ -365,7 +365,7 @@ function generateModal() {
         modalMessage.innerHTML = "PLAYER 1 WINS!";
       } else {
         //if you lost against computer
-        modalMessage.innerHTML = "oh no, you lost...";
+        modalMessage.innerHTML = "OH NO, YOU LOST...";
       }
     } else {
       //if against another player
