@@ -7,20 +7,37 @@ const viewController = (view) => {
       newGameMenu.style.display = "none";
       gameBoard.style.display = "block";
       modal.style.display = "none";
+      resetModal.style.display = "none";
       break;
     case "newGame":
       newGameMenu.style.display = "block";
       gameBoard.style.display = "none";
       modal.style.display = "none";
+      resetModal.style.display = "none";
       break;
     case "modal-open":
-      generateModal();
-      modal.style.display = "block";
-      gameBoard.style.opacity = "0.5";
-      gameBoard.classList.add("fade");
+      setTimeout(() => {
+        generateModal();
+        modal.style.display = "block";
+        gameBoard.style.opacity = "0.5";
+        gameBoard.classList.add("fade");
+      }, 1500);
+
       break;
     case "modal-close":
       modal.style.display = "none";
+      gameBoard.style.opacity = "1.0";
+      gameBoard.classList.add("fade");
+
+      break;
+    case "reset-modal-open":
+      resetModal.style.display = "block";
+      gameBoard.style.opacity = "0.5";
+      gameBoard.classList.add("fade");
+
+      break;
+    case "reset-modal-close":
+      resetModal.style.display = "none";
       gameBoard.style.opacity = "1.0";
       gameBoard.classList.add("fade");
 
@@ -85,6 +102,7 @@ const game = {
 newGameMenu = document.getElementById("new-game-menu");
 gameBoard = document.getElementById("game-board");
 modal = document.getElementById("modal");
+resetModal = document.getElementById("reset-modal");
 
 viewController("newGame"); //initially loads with new game view
 
