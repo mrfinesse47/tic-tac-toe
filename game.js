@@ -51,7 +51,7 @@ const game = {
   p2Mark: "x",
   isHumanOpponent: null,
   isComputerMoving: null,
-  turn: "o",
+  turn: "x",
   aiMove() {
     //pick 2 random numbers 0-2 try board if its occupied try again
     this.isComputerMoving = true;
