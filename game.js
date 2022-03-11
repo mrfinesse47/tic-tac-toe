@@ -17,6 +17,8 @@ const viewController = (view) => {
       resetModal.style.display = "none";
       break;
     case "newGame":
+      game.reset();
+
       newGameMenu.style.display = "block";
       gameBoard.style.display = "none";
       modal.style.display = "none";
@@ -59,6 +61,13 @@ const game = {
   isHumanOpponent: null,
   isComputerMoving: null,
   turn: "x",
+  determineInitialTurn() {
+    if (this.roundCount % 0 === 0) {
+      this.turn = "o";
+    } else {
+      this.turn = "x";
+    }
+  },
 
   aiMove() {
     //pick 2 random numbers 0-2 try board if its occupied try again
@@ -106,6 +115,16 @@ const game = {
   tiesCount: 0,
   oWinsCount: 0,
   roundCount: 0,
+  reset() {
+    this.determineInitialTurn();
+    this.board = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ];
+    this.winningSquares = [];
+    this.roundWinner = null;
+  },
 }; //accessable to all functions that come after.
 
 newGameMenu = document.getElementById("new-game-menu");
@@ -269,6 +288,7 @@ function determineWinOrTie() {
       if (game.board[1][1] === "x") {
         game.roundWinner = "x";
         game.xWinsCount++;
+        game.roundCount++;
         isWinner = true;
       } else {
         game.roundWinner = "o";
@@ -301,9 +321,9 @@ function determineWinOrTie() {
   }
 
   if (nullCount === 0 && isWinner === false) {
-    console.log("tie");
     game.roundWinner = "tie";
     game.tiesCount++;
+    game.roundCount++;
   }
   if (game.roundWinner && game.roundWinner !== "tie") {
     game.winningSquares.forEach((square) => {
@@ -328,6 +348,7 @@ function determineWinOrTie() {
     //show module
     viewController("modal-open");
   }
+
   updateScoreHTML();
 }
 
@@ -415,3 +436,5 @@ function generateModal() {
     }
   }
 }
+
+//modal button handlers
