@@ -3,6 +3,7 @@
 //todo
 
 //make the modal buttons do stuff.
+//need to make the quit button set everything back to default.
 //make the reset button show the reset modal
 //once on a new round alternate it so o can go first
 //hover effects on the game board
@@ -143,6 +144,16 @@ const game = {
       }
     }
   },
+  quitGame() {
+    this.reset();
+    this.isHumanOpponent = null;
+    this.isComputerMoving = null;
+    this.xWinsCount = 0;
+    this.oWinsCount = 0;
+    this.tiesCount = 0;
+    this.roundCount = 1;
+    updateScoreHTML();
+  },
 }; //accessable to all functions that come after.
 
 newGameMenu = document.getElementById("new-game-menu");
@@ -222,7 +233,7 @@ const toggleHumanOrAI = (el) => {
 
 //game board helper functions
 
-const updateScoreHTML = () => {
+function updateScoreHTML() {
   xTotal = document.querySelector("#x-score p");
   ties = document.querySelector("#ties p");
   oTotal = document.querySelector("#o-score p");
@@ -230,7 +241,7 @@ const updateScoreHTML = () => {
   xTotal.innerText = game.xWinsCount;
   ties.innerText = game.tiesCount;
   oTotal.innerText = game.oWinsCount;
-};
+}
 
 function determineWinOrTie() {
   //will check for the win and show the winning line
@@ -459,4 +470,9 @@ function generateModal() {
 
 function nextRound() {
   viewController("mainGame");
+}
+
+function quit() {
+  game.quitGame();
+  viewController("newGame");
 }
