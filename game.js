@@ -11,14 +11,14 @@ const viewController = (view) => {
   const gameBoard = document.querySelector("#game-board");
   switch (view) {
     case "mainGame":
+      game.reset();
       newGameMenu.style.display = "none";
       gameBoard.style.display = "block";
+      gameBoard.style.opacity = "1.0";
       modal.style.display = "none";
       resetModal.style.display = "none";
       break;
     case "newGame":
-      game.reset();
-
       newGameMenu.style.display = "block";
       gameBoard.style.display = "none";
       modal.style.display = "none";
@@ -62,10 +62,18 @@ const game = {
   isComputerMoving: null,
   turn: "x",
   determineInitialTurn() {
-    if (this.roundCount % 0 === 0) {
-      this.turn = "o";
-    } else {
+    console.log(this.roundCount);
+    const turnIndicator = document.querySelector(".whos-turn img");
+    if (this.roundCount % 2 !== 0) {
       this.turn = "x";
+      turnIndicator.src = "./assets/icon-x-silver.svg";
+    } else {
+      this.turn = "o";
+      turnIndicator.src = "./assets/icon-o-silver.svg";
+    }
+
+    if (this.p1Mark !== this.turn && !this.isHumanOpponent) {
+      this.aiMove(); //ai moves first if it is its turn
     }
   },
 
@@ -114,7 +122,7 @@ const game = {
   xWinsCount: 0,
   tiesCount: 0,
   oWinsCount: 0,
-  roundCount: 0,
+  roundCount: 1,
   reset() {
     this.determineInitialTurn();
     this.board = [
@@ -124,6 +132,16 @@ const game = {
     ];
     this.winningSquares = [];
     this.roundWinner = null;
+    this.isComputerMoving = false;
+    //need to remove all x or o from board for new round
+    for (i = 0; i <= 2; i++) {
+      for (j = 0; j <= 2; j++) {
+        const cell = document.getElementById(`${i},${j}`);
+        cell.innerHTML = "";
+        cell.style.backgroundColor = "#1f3641";
+        cell.style.boxShadow = "inset 0px -8px 0px #10212a";
+      }
+    }
   },
 }; //accessable to all functions that come after.
 
@@ -200,10 +218,6 @@ const toggleHumanOrAI = (el) => {
 
   viewController("mainGame");
   //viewController("modal-open");
-
-  if (game.p1Mark !== game.turn && !game.isHumanOpponent) {
-    game.aiMove(); //ai moves first if it is its turn
-  }
 };
 
 //game board helper functions
@@ -245,6 +259,7 @@ function determineWinOrTie() {
         isWinner = true;
         game.roundWinner = "x";
         game.xWinsCount++;
+        game.roundCount++;
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${x - m},${y}`);
         }
@@ -253,6 +268,7 @@ function determineWinOrTie() {
         isWinner = true;
         game.roundWinner = "o";
         game.oWinsCount++;
+        game.roundCount++;
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${x - m},${y}`);
         }
@@ -261,6 +277,7 @@ function determineWinOrTie() {
         isWinner = true;
         game.roundWinner = "x";
         game.xWinsCount++;
+        game.roundCount++;
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${y},${x - m}`);
         }
@@ -268,6 +285,7 @@ function determineWinOrTie() {
       if (vertOCount === 3) {
         isWinner = true;
         game.oWinsCount++;
+        game.roundCount++;
         game.roundWinner = "o";
         for (m = 0; m <= 2; m++) {
           game.winningSquares.push(`${y},${x - m}`);
@@ -438,3 +456,7 @@ function generateModal() {
 }
 
 //modal button handlers
+
+function nextRound() {
+  viewController("mainGame");
+}
