@@ -1,5 +1,12 @@
 //will control the views and the game
 
+//todo
+
+//make the modal buttons do stuff.
+//make the reset button show the reset modal
+//once on a new round alternate it so o can go first
+//hover effects on the game board
+
 const viewController = (view) => {
   const gameBoard = document.querySelector("#game-board");
   switch (view) {
@@ -52,6 +59,7 @@ const game = {
   isHumanOpponent: null,
   isComputerMoving: null,
   turn: "x",
+
   aiMove() {
     //pick 2 random numbers 0-2 try board if its occupied try again
     this.isComputerMoving = true;
@@ -97,6 +105,7 @@ const game = {
   xWinsCount: 0,
   tiesCount: 0,
   oWinsCount: 0,
+  roundCount: 0,
 }; //accessable to all functions that come after.
 
 newGameMenu = document.getElementById("new-game-menu");
@@ -143,6 +152,32 @@ const toggleHumanOrAI = (el) => {
   el.id === "human"
     ? (game.isHumanOpponent = true)
     : (game.isHumanOpponent = false);
+
+  const whoIsX = document.getElementById("who-is-x");
+  const whoIsO = document.getElementById("who-is-o");
+  const turnIndicator = document.querySelector(".whos-turn img");
+
+  if (game.turn === "o") {
+    turnIndicator.src = "./assets/icon-o-silver.svg";
+  }
+
+  if (game.isHumanOpponent) {
+    if (game.p1Mark === "x") {
+      whoIsX.innerText = "P1";
+      whoIsO.innerText = "P2";
+    } else {
+      whoIsX.innerText = "P2";
+      whoIsO.innerText = "P1";
+    }
+  } else {
+    if (game.p1Mark === "x") {
+      whoIsX.innerText = "YOU";
+      whoIsO.innerText = "CPU";
+    } else {
+      whoIsX.innerText = "CPU";
+      whoIsO.innerText = "YOU";
+    }
+  }
 
   viewController("mainGame");
   //viewController("modal-open");
@@ -238,6 +273,7 @@ function determineWinOrTie() {
       } else {
         game.roundWinner = "o";
         game.oWinsCount++;
+        game.roundCount++;
         isWinner = true;
       }
     }
@@ -253,10 +289,12 @@ function determineWinOrTie() {
       if (game.board[1][1] === "x") {
         game.roundWinner = "x";
         game.xWinsCount++;
+        game.roundCount++;
         isWinner = true;
       } else {
         game.roundWinner = "o";
         game.oWinsCount++;
+        game.roundCount++;
         isWinner = true;
       }
     }
