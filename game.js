@@ -134,15 +134,8 @@ const game = {
     this.winningSquares = [];
     this.roundWinner = null;
     this.isComputerMoving = false;
-    //need to remove all x or o from board for new round
-    for (i = 0; i <= 2; i++) {
-      for (j = 0; j <= 2; j++) {
-        const cell = document.getElementById(`${i},${j}`);
-        cell.innerHTML = "";
-        cell.style.backgroundColor = "#1f3641";
-        cell.style.boxShadow = "inset 0px -8px 0px #10212a";
-      }
-    }
+
+    clearBoard();
   },
   quitGame() {
     this.reset();
@@ -153,6 +146,15 @@ const game = {
     this.tiesCount = 0;
     this.roundCount = 1;
     updateScoreHTML();
+  },
+  resetRound() {
+    clearBoard();
+    this.determineInitialTurn();
+    this.board = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ];
   },
 }; //accessable to all functions that come after.
 
@@ -232,6 +234,17 @@ const toggleHumanOrAI = (el) => {
 };
 
 //game board helper functions
+
+function clearBoard() {
+  for (i = 0; i <= 2; i++) {
+    for (j = 0; j <= 2; j++) {
+      const cell = document.getElementById(`${i},${j}`);
+      cell.innerHTML = "";
+      cell.style.backgroundColor = "#1f3641";
+      cell.style.boxShadow = "inset 0px -8px 0px #10212a";
+    }
+  }
+}
 
 function updateScoreHTML() {
   xTotal = document.querySelector("#x-score p");
@@ -475,4 +488,8 @@ function nextRound() {
 function quit() {
   game.quitGame();
   viewController("newGame");
+}
+
+function restart() {
+  game.resetRound();
 }
