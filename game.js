@@ -436,6 +436,19 @@ function cellClickHandler(el, isAICaller) {
   return false;
 }
 
+function cellHoverEffect(el) {
+  //we can only do this on empty squares when it is a human players turn
+  el.innerHTML = "<img src='./assets/icon-o-outline.svg' alt='o' />";
+  el.style.cursor = "pointer";
+}
+
+function cellMouseLeave(el) {
+  //alert("hi");
+  console.log(el);
+  el.innerHTML = "";
+  el.style.cursor = "default";
+}
+
 //modal utility functions
 
 function generateModal() {
