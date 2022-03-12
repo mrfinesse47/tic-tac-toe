@@ -156,10 +156,6 @@ h2 {
 }
 
 #game-board {
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%); if i want to center it
   width: 328px; //mobile first
   margin: 0 auto;
   margin-top: 24px;
@@ -173,8 +169,7 @@ h2 {
       justify-content: center;
       align-items: center;
       margin-right: 46.03px;
-      // margin-bottom: 32px;
-      // margin-top: 119px;
+
       img {
         width: 31.74px;
         height: 31.74px;
