@@ -1,4 +1,8 @@
 @import "variables";
+@import "media-queries";
+
+//to use media query
+//@include tablet {}
 
 body {
   background-color: $dark-navy;
@@ -85,6 +89,9 @@ h2 {
   margin: 0 auto;
   width: 327px;
 
+  @include tablet {
+    background-color: red;
+  }
   .xo-displayed {
     display: flex;
     flex-direction: row;
