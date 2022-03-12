@@ -97,6 +97,7 @@ const game = {
           )
         );
         this.isComputerMoving = false;
+        console.log("computer done moving");
       }
     }, 600); //the delay between turns when up against computer
   },
@@ -125,6 +126,7 @@ const game = {
   oWinsCount: 0,
   roundCount: 1,
   reset() {
+    this.isComputerMoving = false;
     this.determineInitialTurn();
     this.board = [
       [null, null, null],
@@ -133,7 +135,6 @@ const game = {
     ];
     this.winningSquares = [];
     this.roundWinner = null;
-    this.isComputerMoving = false;
 
     clearBoard();
   },
@@ -397,6 +398,8 @@ function determineWinOrTie() {
 function cellClickHandler(el, isAICaller) {
   //returns true if a cell is changed, false if no change
 
+  console.log("clicking cell");
+
   if (isAICaller || !game.isComputerMoving) {
     //makes sure its locked out for the delay when it is the AIs turn
     const turnIndicator = document.querySelector(".whos-turn img");
@@ -439,22 +442,31 @@ function cellClickHandler(el, isAICaller) {
 function cellHoverEffect(el) {
   //we can only do this on empty squares when it is a human players turn
 
-  const xCoord = el.id.slice(0, 1);
-  const yCoord = el.id.slice(2, 3);
+  const xCoord = Number(el.id.slice(0, 1));
+  const yCoord = Number(el.id.slice(2, 3));
+
+  console.log(typeof xCoord);
 
   //console.log(game.board[xCoord][yCorrd]);
 
-  if (game.board[xCoord][yCoord] === null) {
-    el.innerHTML = "<img src='./assets/icon-o-outline.svg' alt='o' />";
+  if (
+    game.board[xCoord][yCoord] === null &&
+    !game.roundWinner &&
+    !game.isComputerMoving
+  ) {
+    if (game.turn === "o") {
+      el.innerHTML = `<img src='./assets/icon-o-outline.svg' alt='o' />`;
+    } else {
+      el.innerHTML = `<img src='./assets/icon-x-outline.svg' alt='x'/>`;
+    }
     el.style.cursor = "pointer";
   }
 }
 
 function cellMouseLeave(el) {
-  //alert("hi");
   const xCoord = el.id.slice(0, 1);
   const yCoord = el.id.slice(2, 3);
-  console.log(el);
+
   if (game.board[xCoord][yCoord] === null) {
     el.innerHTML = "";
     el.style.cursor = "default";
