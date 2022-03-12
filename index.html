@@ -78,7 +78,7 @@
           <img src="./assets/icon-x-silver.svg" alt="x" />
           <h2>Turn</h2>
         </div>
-        <div class="restart" onclick="restart()">
+        <div class="restart" onclick="restartModalOpen()">
           <img src="./assets/icon-restart.svg" alt="restart" />
         </div>
       </header>
@@ -193,10 +193,18 @@
         <p class="restart-game">RESTART GAME?</p>
       </div>
       <div class="options">
-        <button class="btn-primary btn-md silver" id="cancel" onclick="">
+        <button
+          class="btn-primary btn-md silver"
+          id="cancel"
+          onclick="restartRoundCancel()"
+        >
           NO, CANCEL
         </button>
-        <button class="btn-primary btn-md gold" id="restart" onclick="">
+        <button
+          class="btn-primary btn-md gold"
+          id="restart"
+          onclick="restartRound()"
+        >
           YES, RESTART
         </button>
       </div>

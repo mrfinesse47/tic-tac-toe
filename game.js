@@ -71,7 +71,7 @@ const game = {
   aiMove() {
     //pick 2 random numbers 0-2 try board if its occupied try again
     this.isComputerMoving = true;
-    //makes it so its locked out during comps move
+    //makes it so cell clicks are locked out during comps move
 
     setTimeout(() => {
       if (!this.roundWinner) {
@@ -104,11 +104,7 @@ const game = {
       }
     }
   },
-  board: [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
-  ],
+  board: [],
   roundWinner: null,
   winningSquares: [],
   xWinsCount: 0,
@@ -126,7 +122,7 @@ const game = {
     this.winningSquares = [];
     this.roundWinner = null;
 
-    clearBoard();
+    clearBoardHTML();
   },
   quitGame() {
     this.reset();
@@ -139,7 +135,7 @@ const game = {
     updateScoreHTML();
   },
   resetRound() {
-    clearBoard();
+    clearBoardHTML();
     this.determineInitialTurn();
     this.board = [
       [null, null, null],
@@ -223,7 +219,7 @@ const toggleHumanOrAI = (el) => {
 
 //game board helper functions
 
-function clearBoard() {
+function clearBoardHTML() {
   for (i = 0; i <= 2; i++) {
     for (j = 0; j <= 2; j++) {
       const cell = document.getElementById(`${i},${j}`);
@@ -514,7 +510,18 @@ function quit() {
   viewController("newGame");
 }
 
-function restart() {
-  //viewController("restart-round");
-  game.resetRound();
+function restartModalOpen() {
+  if (!game.roundWinner) {
+    viewController("reset-modal-open");
+  }
+  // game.resetRound();
+}
+
+function restartRound() {
+  if (!game.roundWinner) game.resetRound();
+  viewController("reset-modal-close");
+}
+
+function restartRoundCancel() {
+  viewController("reset-modal-close");
 }
