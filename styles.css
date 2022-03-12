@@ -176,6 +176,10 @@ h2 {
   height: 54px;
 }
 
+#new-game-menu .menu .selection:hover {
+  cursor: pointer;
+}
+
 #new-game-menu .buttons-container {
   display: -webkit-box;
   display: -ms-flexbox;

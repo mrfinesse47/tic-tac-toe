@@ -1,12 +1,6 @@
-//will control the views and the game
-
 //todo
 
-//make the modal buttons do stuff.
-//need to make the quit button set everything back to default.
 //make the reset button show the reset modal
-//once on a new round alternate it so o can go first
-//hover effects on the game board
 
 const viewController = (view) => {
   const gameBoard = document.querySelector("#game-board");
@@ -30,26 +24,22 @@ const viewController = (view) => {
         generateModal();
         modal.style.display = "block";
         gameBoard.style.opacity = "0.5";
-        // gameBoard.classList.add("fade");
       }, 1500);
 
       break;
     case "modal-close":
       modal.style.display = "none";
       gameBoard.style.opacity = "1.0";
-      //gameBoard.classList.add("fade");
 
       break;
     case "reset-modal-open":
       resetModal.style.display = "block";
       gameBoard.style.opacity = "0.5";
-      // gameBoard.classList.add("fade");
 
       break;
     case "reset-modal-close":
       resetModal.style.display = "none";
       gameBoard.style.opacity = "1.0";
-      // gameBoard.classList.add("fade");
 
       break;
     // default:
@@ -166,8 +156,6 @@ resetModal = document.getElementById("reset-modal");
 
 viewController("newGame"); //initially loads with new game view
 
-//viewController("modal-open");
-
 //main menu helper functions
 
 const toggleSelection = (el) => {
@@ -231,7 +219,6 @@ const toggleHumanOrAI = (el) => {
   }
 
   viewController("mainGame");
-  //viewController("modal-open");
 };
 
 //game board helper functions
@@ -473,7 +460,7 @@ function cellMouseLeave(el) {
   }
 }
 
-//modal utility functions
+//modal utility functions -----------------------------------------//
 
 function generateModal() {
   const modalMessage = document.querySelector("#modal .message");
@@ -528,5 +515,6 @@ function quit() {
 }
 
 function restart() {
+  //viewController("restart-round");
   game.resetRound();
 }
