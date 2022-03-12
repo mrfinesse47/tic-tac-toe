@@ -24,7 +24,7 @@ const viewController = (view) => {
         generateModal();
         modal.style.display = "block";
         gameBoard.style.opacity = "0.5";
-      }, 1500);
+      }, 1100);
 
       break;
     case "modal-close":
@@ -52,6 +52,14 @@ const game = {
   isHumanOpponent: null,
   isComputerMoving: null,
   turn: "x",
+  board: [],
+  roundWinner: null,
+  winningSquares: [],
+  xWinsCount: 0,
+  tiesCount: 0,
+  oWinsCount: 0,
+  roundCount: 1,
+  //game obj methods follow
   determineInitialTurn() {
     console.log(this.roundCount);
     const turnIndicator = document.querySelector(".whos-turn img");
@@ -104,13 +112,7 @@ const game = {
       }
     }
   },
-  board: [],
-  roundWinner: null,
-  winningSquares: [],
-  xWinsCount: 0,
-  tiesCount: 0,
-  oWinsCount: 0,
-  roundCount: 1,
+
   reset() {
     this.isComputerMoving = false;
     this.determineInitialTurn();
@@ -370,8 +372,6 @@ function determineWinOrTie() {
     });
   }
   if (game.roundWinner === "tie") {
-    //game.tiesCount++;
-    //show module
     viewController("modal-open");
   }
 
@@ -393,7 +393,7 @@ function cellClickHandler(el, isAICaller) {
       //only adds and x or o if there is no round winner and the square already isnt occupied
       if (game.turn === "x") {
         el.innerHTML = "<img src='./assets/icon-x.svg' alt='x' />";
-        // game.turn = "o";
+
         game.toggleTurn();
         game.board[xCoord][yCoord] = "x";
         //toggles the indicator at the top as to whos turn it is
