@@ -438,15 +438,27 @@ function cellClickHandler(el, isAICaller) {
 
 function cellHoverEffect(el) {
   //we can only do this on empty squares when it is a human players turn
-  el.innerHTML = "<img src='./assets/icon-o-outline.svg' alt='o' />";
-  el.style.cursor = "pointer";
+
+  const xCoord = el.id.slice(0, 1);
+  const yCoord = el.id.slice(2, 3);
+
+  //console.log(game.board[xCoord][yCorrd]);
+
+  if (game.board[xCoord][yCoord] === null) {
+    el.innerHTML = "<img src='./assets/icon-o-outline.svg' alt='o' />";
+    el.style.cursor = "pointer";
+  }
 }
 
 function cellMouseLeave(el) {
   //alert("hi");
+  const xCoord = el.id.slice(0, 1);
+  const yCoord = el.id.slice(2, 3);
   console.log(el);
-  el.innerHTML = "";
-  el.style.cursor = "default";
+  if (game.board[xCoord][yCoord] === null) {
+    el.innerHTML = "";
+    el.style.cursor = "default";
+  }
 }
 
 //modal utility functions
