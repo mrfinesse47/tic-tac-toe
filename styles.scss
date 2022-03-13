@@ -193,6 +193,7 @@ h2 {
   width: 328px; //mobile first
   margin: 0 auto;
   margin-top: 24px;
+  //
 
   @include tablet {
     width: 460px;
