@@ -1,15 +1,7 @@
-@mixin desktop {
-  @media only screen and (min-width: 900px) {
-    @content;
-  }
-}
 @mixin tablet {
-  @media only screen and (min-width: 767px) and (max-width: 899px) {
+  @media only screen and (min-width: 767px) {
     @content;
   }
 }
-@mixin mobile {
-  @media only screen and (max-width: 766px) {
-    @content;
-  }
-}
+
+//turns out desktop size is the same as tablet

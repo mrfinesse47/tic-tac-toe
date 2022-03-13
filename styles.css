@@ -4,6 +4,17 @@ body {
   margin: 0;
 }
 
+@media only screen and (min-width: 767px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .fade {
   opacity: 0.5;
 }
@@ -30,7 +41,7 @@ h2 {
   letter-spacing: 1px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   .btn-primary {
     width: 460px;
     height: 67px;
@@ -39,10 +50,12 @@ h2 {
 
 .btn-md {
   width: 146px;
+  height: 52px;
 }
 
 .btn-sm {
   width: 76px;
+  height: 52px;
 }
 
 .gold {
@@ -94,7 +107,7 @@ h2 {
   width: 327px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #new-game-menu {
     width: 460px;
   }
@@ -115,7 +128,7 @@ h2 {
   margin-top: 119px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #new-game-menu .xo-displayed {
     margin-bottom: 40px;
   }
@@ -143,7 +156,7 @@ h2 {
   opacity: 0.5;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #new-game-menu p {
     margin-bottom: 30px;
   }
@@ -168,7 +181,7 @@ h2 {
           align-items: center;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #new-game-menu .menu {
     width: 460px;
   }
@@ -190,7 +203,7 @@ h2 {
   height: 72px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #new-game-menu .menu .selection {
     width: 412px;
   }
@@ -217,7 +230,7 @@ h2 {
   height: 54px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #new-game-menu .menu .selection .x,
   #new-game-menu .menu .selection .o {
     width: 198px;
@@ -247,7 +260,7 @@ h2 {
   margin-bottom: 16px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #new-game-menu .buttons-container .btn-primary.gold {
     margin-top: 40px;
     margin-bottom: 20px;
@@ -260,7 +273,7 @@ h2 {
   margin-top: 24px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board {
     width: 460px;
     position: absolute;
@@ -301,7 +314,7 @@ h2 {
   margin-right: 46.03px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board header .xo-displayed {
     margin-right: 85.03px;
   }
@@ -329,7 +342,7 @@ h2 {
   margin-right: 74px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board header .whos-turn {
     padding: 13px 30px 19px 30px;
     margin-right: 108px;
@@ -342,7 +355,7 @@ h2 {
   font-size: 14px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board header .whos-turn h2 {
     font-size: 16px;
   }
@@ -353,7 +366,7 @@ h2 {
   height: 16px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board header .whos-turn img {
     width: 20px;
     height: 20px;
@@ -378,7 +391,7 @@ h2 {
   border-radius: 5px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board header .restart {
     width: 52px;
     height: 52px;
@@ -391,7 +404,7 @@ h2 {
   height: 15.38px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board header .restart img {
     width: 20px;
     height: 20px;
@@ -402,7 +415,7 @@ h2 {
   margin-top: 64px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board main {
     margin-top: 19px;
   }
@@ -437,7 +450,7 @@ h2 {
   border-radius: 10px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board main .row .cell {
     width: 140px;
     height: 140px;
@@ -450,7 +463,7 @@ h2 {
   height: 40px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board main .row .cell img {
     width: 63.46px;
     height: 63.46px;
@@ -474,7 +487,7 @@ h2 {
   border-radius: 10px;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board footer .score {
     width: 140px;
     height: 72px;
@@ -489,7 +502,7 @@ h2 {
   text-align: center;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board footer .score h3 {
     letter-spacing: 0.875px;
     font-size: 14px;
@@ -503,7 +516,7 @@ h2 {
   font-weight: 700;
 }
 
-@media only screen and (min-width: 767px) and (max-width: 899px) {
+@media only screen and (min-width: 767px) {
   #game-board footer .score p {
     font-size: 24px;
     line-height: 30px;
@@ -545,16 +558,37 @@ h2 {
   letter-spacing: 0.875px;
 }
 
+@media only screen and (min-width: 767px) {
+  .modal .message {
+    font-size: 16px;
+  }
+}
+
 .modal img {
   width: 30px;
   height: 30px;
   margin-right: 8px;
 }
 
+@media only screen and (min-width: 767px) {
+  .modal img {
+    width: 64px;
+    height: 64px;
+    margin-right: 24px;
+  }
+}
+
 .modal #winner {
   font-size: 24px;
   letter-spacing: 2.5px;
   margin: 0;
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 767px) {
+  .modal #winner {
+    font-size: 40px;
+  }
 }
 
 .modal .o-winner {
@@ -590,6 +624,13 @@ h2 {
   margin-top: 24px;
 }
 
+@media only screen and (min-width: 767px) {
+  .modal .options {
+    margin-top: 31px;
+    padding-bottom: 66px;
+  }
+}
+
 .modal .silver {
   margin-right: 16px;
 }
@@ -602,5 +643,13 @@ h2 {
   line-height: 30px;
   text-align: center;
   letter-spacing: 1.5px;
+}
+
+@media only screen and (min-width: 767px) {
+  #reset-modal .restart-game {
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 2.5px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

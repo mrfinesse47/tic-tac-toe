@@ -8,6 +8,10 @@ body {
   background-color: $dark-navy;
   font-family: "Outfit", sans-serif;
   margin: 0;
+  @include tablet {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .fade {
@@ -43,10 +47,13 @@ h2 {
 
 .btn-md {
   width: 146px;
+  height: 52px;
+  // padding: 16px;
 }
 
 .btn-sm {
   width: 76px;
+  height: 52px;
 }
 .gold {
   box-shadow: inset 0px -8px 0px #cc8b13;
@@ -386,17 +393,29 @@ h2 {
     margin-bottom: 16px;
     font-size: 14px;
     letter-spacing: 0.875px;
+    @include tablet {
+      font-size: 16px;
+    }
   }
   img {
     width: 30px;
     height: 30px;
     margin-right: 8px;
+    @include tablet {
+      width: 64px;
+      height: 64px;
+      margin-right: 24px;
+    }
   }
 
   #winner {
     font-size: 24px;
     letter-spacing: 2.5px;
     margin: 0;
+    font-weight: 700;
+    @include tablet {
+      font-size: 40px;
+    }
   }
   .o-winner {
     color: $light-yellow;
@@ -420,6 +439,10 @@ h2 {
   .options {
     padding-bottom: 40px;
     margin-top: 24px;
+    @include tablet {
+      margin-top: 31px;
+      padding-bottom: 66px;
+    }
   }
   .silver {
     margin-right: 16px;
@@ -435,5 +458,11 @@ h2 {
     line-height: 30px;
     text-align: center;
     letter-spacing: 1.5px;
+    @include tablet {
+      font-size: 40px;
+      line-height: 50px;
+
+      letter-spacing: 2.5px;
+    }
   }
 }
