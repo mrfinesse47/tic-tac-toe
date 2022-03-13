@@ -118,11 +118,14 @@ h2 {
     letter-spacing: 1px;
     color: $silver;
     margin: 24px;
+    font-weight: 700;
   }
   p {
     font-size: 0.875rem;
     letter-spacing: 1px;
     color: $silver;
+    mix-blend-mode: normal;
+    opacity: 0.5;
     @include tablet {
       margin-bottom: 30px;
     }
@@ -201,12 +204,14 @@ h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    margin-top: 0px;
   }
 
   header {
     display: flex;
     align-items: center;
     justify-content: center;
+
     .xo-displayed {
       display: flex;
       flex-direction: row;
@@ -235,10 +240,14 @@ h2 {
       @include tablet {
         padding: 13px 30px 19px 30px;
         margin-right: 108px;
+        letter-spacing: 1px;
       }
       h2 {
         margin-left: 9px;
         font-size: 14px;
+        @include tablet {
+          font-size: 16px;
+        }
       }
       img {
         width: 16px;
@@ -258,14 +267,26 @@ h2 {
       width: 40px;
       height: 40px;
       border-radius: 5px;
+      @include tablet {
+        width: 52px;
+        height: 52px;
+        border-radius: 10px;
+      }
       img {
         width: 15.38px;
         height: 15.38px;
+        @include tablet {
+          width: 20px;
+          height: 20px;
+        }
       }
     }
   } //end header
   main {
     margin-top: 64px;
+    @include tablet {
+      margin-top: 19px;
+    }
     .row {
       width: 100%;
       justify-content: space-between;
@@ -280,9 +301,18 @@ h2 {
         margin-bottom: 20px;
         box-shadow: inset 0px -8px 0px #10212a;
         border-radius: 10px;
+        @include tablet {
+          width: 140px;
+          height: 140px;
+          border-radius: 15px;
+        }
         img {
           width: 40px;
           height: 40px;
+          @include tablet {
+            width: 63.46px;
+            height: 63.46px;
+          }
         }
       }
     }
@@ -297,17 +327,33 @@ h2 {
       height: 64px;
       text-align: center;
       border-radius: 10px;
+      @include tablet {
+        width: 140px;
+        height: 72px;
+      }
       h3 {
         font-size: 12px;
         font-weight: 500;
         margin-top: 12px;
         letter-spacing: 0.75px;
+        text-align: center;
+
+        @include tablet {
+          letter-spacing: 0.875px;
+          font-size: 14px;
+        }
       }
       p {
         padding: 0;
         margin: 0;
         font-size: 20px;
         font-weight: 700;
+        @include tablet {
+          font-size: 24px;
+          line-height: 30px;
+          text-align: center;
+          letter-spacing: 1.5px;
+        }
       }
     }
     #x-score {
