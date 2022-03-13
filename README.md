@@ -63,6 +63,10 @@ I'd possibly make a better AI for the game, as of right now the AI is random.
 
 Another option is to write a backend for the game.
 
+Adding css animations/transitions.
+
+If I were going to use a framework like React id make use of React Transition Group, this would be easier than writing transitions from scratch in CSS/JS.
+
 ## Author
 
 - Github - [mrfinesse47](https://github.com/mrfinesse47)
