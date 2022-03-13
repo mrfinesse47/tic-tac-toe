@@ -61,7 +61,6 @@ const game = {
   roundCount: 1,
   //game obj methods follow
   determineInitialTurn() {
-    console.log(this.roundCount);
     const turnIndicator = document.querySelector(".whos-turn img");
     if (this.roundCount % 2 !== 0) {
       this.turn = "x";
@@ -95,7 +94,6 @@ const game = {
           )
         );
         this.isComputerMoving = false;
-        console.log("computer done moving");
       }
     }, 600); //the delay between turns when up against computer
   },
@@ -381,8 +379,6 @@ function determineWinOrTie() {
 function cellClickHandler(el, isAICaller) {
   //returns true if a cell is changed, false if no change
 
-  console.log("clicking cell");
-
   if (isAICaller || !game.isComputerMoving) {
     //makes sure its locked out for the delay when it is the AIs turn
     const turnIndicator = document.querySelector(".whos-turn img");
@@ -427,10 +423,6 @@ function cellHoverEffect(el) {
 
   const xCoord = Number(el.id.slice(0, 1));
   const yCoord = Number(el.id.slice(2, 3));
-
-  console.log(typeof xCoord);
-
-  //console.log(game.board[xCoord][yCorrd]);
 
   if (
     game.board[xCoord][yCoord] === null &&
@@ -514,7 +506,6 @@ function restartModalOpen() {
   if (!game.roundWinner) {
     viewController("reset-modal-open");
   }
-  // game.resetRound();
 }
 
 function restartRound() {
