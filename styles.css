@@ -257,6 +257,17 @@ h2 {
   margin-top: 24px;
 }
 
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  #game-board {
+    width: 460px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
 #game-board header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -286,10 +297,16 @@ h2 {
   margin-right: 46.03px;
 }
 
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  #game-board header .xo-displayed {
+    margin-right: 85.03px;
+  }
+}
+
 #game-board header .xo-displayed img {
   width: 31.74px;
   height: 31.74px;
-  margin-right: 8px;
+  margin-right: 8.23px;
 }
 
 #game-board header .whos-turn {
@@ -308,6 +325,13 @@ h2 {
   margin-right: 74px;
 }
 
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  #game-board header .whos-turn {
+    padding: 13px 30px 19px 30px;
+    margin-right: 108px;
+  }
+}
+
 #game-board header .whos-turn h2 {
   margin-left: 9px;
   font-size: 14px;
@@ -316,6 +340,13 @@ h2 {
 #game-board header .whos-turn img {
   width: 16px;
   height: 16px;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  #game-board header .whos-turn img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 #game-board header .restart {
@@ -427,7 +458,7 @@ h2 {
   background-color: #1f3641;
   text-align: center;
   z-index: 10;
-  opacity: 1 !important;
+  opacity: 1;
   position: absolute;
   top: 50%;
   left: 50%;

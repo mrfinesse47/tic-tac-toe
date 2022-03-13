@@ -193,6 +193,15 @@ h2 {
   width: 328px; //mobile first
   margin: 0 auto;
   margin-top: 24px;
+
+  @include tablet {
+    width: 460px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   header {
     display: flex;
     align-items: center;
@@ -203,11 +212,14 @@ h2 {
       justify-content: center;
       align-items: center;
       margin-right: 46.03px;
+      @include tablet {
+        margin-right: 85.03px;
+      }
 
       img {
         width: 31.74px;
         height: 31.74px;
-        margin-right: 8px;
+        margin-right: 8.23px;
       }
     }
     .whos-turn {
@@ -219,6 +231,10 @@ h2 {
       padding: 9px 15px 13px 15px;
       box-shadow: inset 0px -4px 0px #10212a;
       margin-right: 74px;
+      @include tablet {
+        padding: 13px 30px 19px 30px;
+        margin-right: 108px;
+      }
       h2 {
         margin-left: 9px;
         font-size: 14px;
@@ -226,6 +242,10 @@ h2 {
       img {
         width: 16px;
         height: 16px;
+        @include tablet {
+          width: 20px;
+          height: 20px;
+        }
       }
     }
     .restart {
@@ -306,7 +326,7 @@ h2 {
   text-align: center;
   z-index: 10;
 
-  opacity: 1 !important;
+  opacity: 1;
 
   position: absolute;
   top: 50%;
