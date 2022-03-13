@@ -66,7 +66,7 @@
 
     <!-- Game board start -->
 
-    <div id="game-board">
+    <main id="game-board">
       <header>
         <div class="xo-displayed">
           <img src="./assets/icon-x.svg" alt="x" />
@@ -80,7 +80,7 @@
           <img src="./assets/icon-restart.svg" alt="restart" />
         </div>
       </header>
-      <main>
+      <div class="main-game">
         <div class="row">
           <div
             class="cell"
@@ -151,7 +151,7 @@
             onMouseLeave="cellMouseLeave(this)"
           ></div>
         </div>
-      </main>
+      </div>
       <footer>
         <div class="score" id="x-score">
           <h3>X (<span id="who-is-x">P1</span>)</h3>
@@ -166,7 +166,7 @@
           <p>0</p>
         </div>
       </footer>
-    </div>
+    </main>
 
     <!-- Game board end -->
 

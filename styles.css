@@ -411,17 +411,17 @@ h2 {
   }
 }
 
-#game-board main {
+#game-board .main-game {
   margin-top: 64px;
 }
 
 @media only screen and (min-width: 767px) {
-  #game-board main {
+  #game-board .main-game {
     margin-top: 19px;
   }
 }
 
-#game-board main .row {
+#game-board .main-game .row {
   width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -431,7 +431,7 @@ h2 {
   display: flex;
 }
 
-#game-board main .row .cell {
+#game-board .main-game .row .cell {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -451,20 +451,20 @@ h2 {
 }
 
 @media only screen and (min-width: 767px) {
-  #game-board main .row .cell {
+  #game-board .main-game .row .cell {
     width: 140px;
     height: 140px;
     border-radius: 15px;
   }
 }
 
-#game-board main .row .cell img {
+#game-board .main-game .row .cell img {
   width: 40px;
   height: 40px;
 }
 
 @media only screen and (min-width: 767px) {
-  #game-board main .row .cell img {
+  #game-board .main-game .row .cell img {
     width: 63.46px;
     height: 63.46px;
   }
