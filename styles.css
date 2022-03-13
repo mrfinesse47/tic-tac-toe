@@ -30,6 +30,13 @@ h2 {
   letter-spacing: 1px;
 }
 
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  .btn-primary {
+    width: 460px;
+    height: 67px;
+  }
+}
+
 .btn-md {
   width: 146px;
 }
@@ -89,7 +96,7 @@ h2 {
 
 @media only screen and (min-width: 767px) and (max-width: 899px) {
   #new-game-menu {
-    background-color: red;
+    width: 460px;
   }
 }
 
@@ -106,6 +113,12 @@ h2 {
           justify-content: center;
   margin-bottom: 32px;
   margin-top: 119px;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  #new-game-menu .xo-displayed {
+    margin-bottom: 40px;
+  }
 }
 
 #new-game-menu img {
@@ -127,6 +140,12 @@ h2 {
   color: #a8bfc9;
 }
 
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  #new-game-menu p {
+    margin-bottom: 30px;
+  }
+}
+
 #new-game-menu .menu {
   background-color: #1f3641;
   margin: 0 auto;
@@ -146,6 +165,12 @@ h2 {
           align-items: center;
 }
 
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  #new-game-menu .menu {
+    width: 460px;
+  }
+}
+
 #new-game-menu .menu .selection {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,8 +182,15 @@ h2 {
       -ms-flex-align: center;
           align-items: center;
   background-color: #1a2a33;
+  border-radius: 10px;
   width: 279px;
   height: 72px;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  #new-game-menu .menu .selection {
+    width: 412px;
+  }
 }
 
 #new-game-menu .menu .selection img {
@@ -182,6 +214,14 @@ h2 {
   height: 54px;
 }
 
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  #new-game-menu .menu .selection .x,
+  #new-game-menu .menu .selection .o {
+    width: 198px;
+    height: 54px;
+  }
+}
+
 #new-game-menu .menu .selection:hover {
   cursor: pointer;
 }
@@ -202,6 +242,13 @@ h2 {
 #new-game-menu .buttons-container .btn-primary.gold {
   margin-top: 32px;
   margin-bottom: 16px;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 899px) {
+  #new-game-menu .buttons-container .btn-primary.gold {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
 }
 
 #game-board {

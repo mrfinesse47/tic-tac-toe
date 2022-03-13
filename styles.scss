@@ -35,6 +35,10 @@ h2 {
   font-size: 1rem;
   color: $dark-navy;
   letter-spacing: 1px;
+  @include tablet {
+    width: 460px;
+    height: 67px;
+  }
 }
 
 .btn-md {
@@ -90,14 +94,19 @@ h2 {
   width: 327px;
 
   @include tablet {
-    background-color: red;
+    width: 460px;
   }
+
   .xo-displayed {
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 32px;
     margin-top: 119px;
+    @include tablet {
+      // margin-top: 277px; figma wants this but i dont like
+      margin-bottom: 40px;
+    }
   }
   img {
     width: 31.78px;
@@ -114,6 +123,9 @@ h2 {
     font-size: 0.875rem;
     letter-spacing: 1px;
     color: $silver;
+    @include tablet {
+      margin-bottom: 30px;
+    }
   }
 
   .menu {
@@ -122,6 +134,9 @@ h2 {
     border-radius: 15px;
     box-shadow: inset 0px -8px 0px #10212a;
     width: 327px;
+    @include tablet {
+      width: 460px;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,8 +145,12 @@ h2 {
       justify-content: center;
       align-items: center;
       background-color: $dark-navy;
+      border-radius: 10px;
       width: 279px;
       height: 72px;
+      @include tablet {
+        width: 412px;
+      }
       img {
         margin: 0 auto;
         height: 32px;
@@ -145,6 +164,10 @@ h2 {
         justify-content: center;
         width: 131.99px;
         height: 54px;
+        @include tablet {
+          width: 198px;
+          height: 54px;
+        }
       }
     }
     .selection:hover {
@@ -158,6 +181,10 @@ h2 {
     .btn-primary.gold {
       margin-top: 32px;
       margin-bottom: 16px;
+      @include tablet {
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
     }
   }
 }
