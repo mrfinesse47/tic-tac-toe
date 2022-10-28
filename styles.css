@@ -49,7 +49,7 @@ h2 {
 }
 
 .btn-md {
-  width: 146px;
+  width: 150px;
   height: 52px;
 }
 
@@ -261,7 +261,8 @@ h2 {
 }
 
 @media only screen and (min-width: 767px) {
-  #new-game-menu .buttons-container .btn-primary.gold {
+  #new-game-menu .buttons-container .
+  -primary.gold {
     margin-top: 40px;
     margin-bottom: 20px;
   }
