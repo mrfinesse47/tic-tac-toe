@@ -1,4 +1,4 @@
-- LIVE SITE: [solution URL](https://mrfinesse47.github.io/tic-tac-toe/)
+LIVE SITE: [solution URL](https://mrfinesse47.github.io/tic-tac-toe/)
 
 # Frontend Mentor - Tic Tac Toe solution
 
